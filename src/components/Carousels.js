@@ -1,58 +1,79 @@
-import React from "react";
-import carousel1 from '../Images/online-psychotherapy-1585671734500 1.jpg';
-import carousel2 from '../Images/nami_dribbble_01_still_2x 1.png';
-import carousel3 from '../Images/cfaf93dbb20d36743f41585860654420 1.png';
+import React from 'react';
+import Carousel from 'react-material-ui-carousel'
 
-export default function Carousel() {
-    return(
-        <div>
-          <div id="default-carousel" className="relative w-full" data-carousel="slide">
-              {/* Carousel wrapper */}
-              <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-                {/* Item 1 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src={carousel1} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-                </div>
-                {/* Item 2 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src={carousel2} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-                </div>
-                {/* Item 3 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src={carousel3} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-                </div>
-                {/* Item 4 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/docs/images/carousel/carousel-4.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-                </div>
-                {/* Item 5 */}
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/docs/images/carousel/carousel-5.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-                </div>
-               </div>
-                {/* Slider indicators */}
-                <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                    <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-                </div>
-                {/* Slider controls */}
-                <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                        <span className="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        <span className="sr-only">Next</span>
-                    </span>
-                </button>
-            </div>
 
-        </div>
+// import ImageList from '@mui/material/ImageList';
+// import ImageListItem from '@mui/material/ImageListItem';
+
+import { Box } from '@mui/system';
+
+function Example(props) {
+    var items = [
+        {
+            name: "Random Name #1",
+            description: "Probably the most random thing you have ever seen!",
+            img_url: "src\Images\Indian_Institute_of_Technology,_Indore_Logo.png"
+        },
+        {
+            name: "Random Name #2",
+            description: "Hello World!",
+            img_url: "D:\ALL FILES AND FOLDERS\Shagun Ghatak\WebDev\Counselling cell website\counseling-website\src\Images\online-psychotherapy-1585671734500 1.jpg"
+
+        },
+        {
+            name: "Random Name #3",
+            description: "Hello World!",
+            img_url: "D:\ALL FILES AND FOLDERS\Shagun Ghatak\WebDev\Counselling cell website\counseling-website\src\Images\istockphoto-1288914845-612x612.jpg"
+
+        }
+
+    ]
+
+    return (
+        <Carousel>
+            {
+                items.map((item, i) => <Item key={i} item={item} />)
+            }
+        </Carousel>
     )
 }
+
+function Item(props) {
+    return (
+      <>
+        {/* <Box > */}
+
+        {/* <ImageList sx={{ width: '100%', height: 500 }} cols={1} rowHeight={1}>
+                
+                    <ImageListItem >
+                        <img
+                            src={`${props.item.img_url}?w=164&h=164&fit=crop&auto=format`}
+                            srcSet={`${props.item.img_url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                            alt={props.item.name}
+                            loading="lazy"
+                        />
+                    </ImageListItem>
+                
+            </ImageList> */}
+        <img
+          className="carousel-bg"
+          src={props.item.img_url}
+          alt="carr"
+          width="100%"
+          height="650px"
+        />
+        {/* <div className='carousel-text'>
+
+                <h2>{props.item.name}</h2>
+                <p>{props.item.description}</p>
+
+                <Button className="CheckButton">
+                    Check it out!
+                </Button>
+            </div> */}
+        {/* </Box> */}
+      </>
+    );
+}
+
+export default Example
