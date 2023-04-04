@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import Example from './components/Carousels'
 import Carousel from './components/Carousel'
 import Footer from './components/Footer'
-import Counsellor from './components/counsellors'
+import Counsellors from './components/Counsellors/counsellors'
 import Testimonial from './components/testimonials/testimonial';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -18,9 +18,7 @@ function App() {
       <Example></Example>
       <Carousel></Carousel>
       <Testimonial></Testimonial>
-      <Counsellor name="ishaan" phone ="9971260556" email="ishaanmittal123@gmail.com"></Counsellor>
-      <Counsellor></Counsellor>
-      <Counsellor></Counsellor>
+      <Counsellors name="ishaan" phone ="9971260556" email="ishaanmittal123@gmail.com"></Counsellors>
       <Footer></Footer>
     </div>
   );
