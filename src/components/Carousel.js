@@ -8,15 +8,15 @@ export default function Carousel () {
     return (
         <div>
             
-            <div id="controls-carousel" class="relative w-full" data-carousel="static">
+            <div id="controls-carousel" class="relative w-full">
             {/* Carousel wrapper */}
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 {/* Item 1 */}
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="duration-700 ease-in-out" data-carousel-item>
                     <img src={carousel1} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
                 </div>
                 {/* Item 2 */}
-                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                <div class=" duration-700 ease-in-out" data-carousel-item="active">
                     <img src={carousel2} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
                 </div>
                {/* Item 3 */}
