@@ -18,7 +18,7 @@ function App() {
       <Example></Example>
       <Carousel></Carousel>
       <Testimonial></Testimonial>
-      <Counsellors name="ishaan" phone ="9971260556" email="ishaanmittal123@gmail.com"></Counsellors>
+      <Counsellors></Counsellors>
       <Footer></Footer>
     </div>
   );
