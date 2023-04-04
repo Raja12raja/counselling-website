@@ -1,5 +1,9 @@
 import React from 'react';
-import Carousel from 'react-material-ui-carousel'
+import Carousel from 'react-material-ui-carousel';
+import carousel1 from '../Images/young-family-teenage-boy-office-family-therapist-psychologist-vector-flat-cartoon-illustration-psychotherapy-165822058.jpg';
+import carousel2 from '../Images/online-psychotherapy-1585671734500 1.jpg';
+import carousel3 from '../Images/istockphoto-1288914845-612x612.jpg';
+import carousel4 from '../Images/clipart-doctor-counselling.png';
 
 
 // import ImageList from '@mui/material/ImageList';
@@ -12,18 +16,18 @@ function Example(props) {
         {
             name: "Random Name #1",
             description: "Probably the most random thing you have ever seen!",
-            img_url: "src\Images\Indian_Institute_of_Technology,_Indore_Logo.png"
+            img_url: {carousel1}
         },
         {
             name: "Random Name #2",
             description: "Hello World!",
-            img_url: "D:\ALL FILES AND FOLDERS\Shagun Ghatak\WebDev\Counselling cell website\counseling-website\src\Images\online-psychotherapy-1585671734500 1.jpg"
+            img_url: {carousel2}
 
         },
         {
             name: "Random Name #3",
             description: "Hello World!",
-            img_url: "D:\ALL FILES AND FOLDERS\Shagun Ghatak\WebDev\Counselling cell website\counseling-website\src\Images\istockphoto-1288914845-612x612.jpg"
+            img_url: {carousel3}
 
         }
 
