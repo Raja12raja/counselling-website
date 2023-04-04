@@ -4,6 +4,9 @@ import Carousel from './components/Carousels'
 import Footer from './components/Footer'
 import Counsellor from './components/counsellors'
 import Testimonial from './components/testimonials/testimonial';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   return (
