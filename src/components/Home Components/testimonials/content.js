@@ -10,7 +10,7 @@ export default function Content(props){
             </p>
             <div className="mt-6 -mx-2">
                 <div className="mx-2 text-right">
-                    <h1 className="font-semibold text-[#79DAE8] dark:text-white">
+                    <h1 className="font-semibold text-[#79DAE8] ">
                     {props.name}
                     </h1>
                 </div>
