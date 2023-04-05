@@ -1,8 +1,8 @@
 // import React from "react";
-import carousel1 from '../Images/young-family-teenage-boy-office-family-therapist-psychologist-vector-flat-cartoon-illustration-psychotherapy-165822058.jpg';
-import carousel2 from '../Images/online-psychotherapy-1585671734500 1.jpg';
-import carousel3 from '../Images/istockphoto-1288914845-612x612.jpg';
-import carousel4 from '../Images/clipart-doctor-counselling.png';
+import carousel1 from '../../Images/young-family-teenage-boy-office-family-therapist-psychologist-vector-flat-cartoon-illustration-psychotherapy-165822058.jpg';
+import carousel2 from '../../Images/online-psychotherapy-1585671734500 1.jpg';
+import carousel3 from '../../Images/istockphoto-1288914845-612x612.jpg';
+import carousel4 from '../../Images/clipart-doctor-counselling.png';
 
 // export default function Carousel () {
 //     return (

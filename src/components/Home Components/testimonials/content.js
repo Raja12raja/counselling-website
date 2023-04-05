@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Content(props){
     return(
-        <div className="w-full p-8 bg-indigo-600 rounded-md shadow-lg dark:bg-gray-800">
-            <p className="leading-loose text-white dark:text-gray-400">
+        <div className="w-full p-8 bg-indigo-600 rounded-md shadow-lg">
+            <p className="leading-loose text-white">
             “ Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ea
             tempora dolores qui eius pariatur odit ad voluptas iste, cum
             accusantium beatae tempore quasi nesciunt distinctio. ”
