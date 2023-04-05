@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Content(props){
     return(
-        <div className="w-full p-8 bg-indigo-600 rounded-md shadow-lg">
+        <div className="mx-20 md:w-full md:mx-0 p-8 bg-indigo-600 rounded-md shadow-lg">
             <p className="leading-loose text-white">
             “ Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ea
             tempora dolores qui eius pariatur odit ad voluptas iste, cum

@@ -10,8 +10,8 @@ export default function Counsellor(props){
         />
         <div className="flex flex-col items-center">
             <p className="text-lg font-bold">{props.name}</p>
-            <p className="text-sm text-gray-800">{props.email}</p>
-            <p className="text-sm text-gray-800">{props.phone}</p>
+            <a className="text-sm text-black" href={"mailto:"+ props.email}>{props.email}</a>
+            <p className="text-sm text-black">{props.phone}</p>
         </div>
         </div>
     )
