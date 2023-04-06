@@ -1,6 +1,6 @@
 import React from "react";
-import '../App.css';
-import counselorImg from '../Images/WhoAreWe img.jpg';
+import '../../App.css';
+import counselorImg from '../../Images/WhoAreWe img.jpg';
 
 export default function WhoAreWe() {
     return(
