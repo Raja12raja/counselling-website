@@ -1,15 +1,14 @@
 import React from "react";
-import Content from "./content";
-import '../../App.css'
+import Content from "./Content";
 
 export default function Testimonial(){
     return(
         <section className="relative flex">
-        <div className="flex flex-col justify-center w-full min-h-screen px-4 py-2 md:mx-24">
+        <div className="flex flex-col justify-center w-full px-4 py-8 md:mx-24">
             <h2 className="max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto text-center">
             Testimonial
             </h2>
-            <div className="grid w-full grid-cols-1 gap-8 2xl:grid-cols-4 lg:mt-16 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full grid-cols-1 gap-8 2xl:grid-cols-4 mt-8 md:grid-cols-2 lg:grid-cols-3">
                 <Content name="Ishaan Mittal"></Content>
                 <Content name="Anonymous"></Content>
                 <Content name="Shagun Ghatak"></Content>
