@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import ReactDOM from 'react-dom';
 import {Routes,Route, Link, BrowserRouter} from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/AboutUs";
