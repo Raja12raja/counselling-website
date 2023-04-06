@@ -1,5 +1,6 @@
 import React from "react";
 import Content from "./content";
+import '../../App.css'
 
 export default function Testimonial(){
     return(

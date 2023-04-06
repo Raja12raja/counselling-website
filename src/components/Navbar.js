@@ -4,7 +4,7 @@ import '../App.css'
 export default function Navbar() {
     return (
         <div>
-            <div class="border-gray-200 px-2 sm:px-4 py-2.5 bg-transparent">
+            <div class="border-gray-200 px-2 sm:px-4 py-2.5 bg-white">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
             <div class="flex md:order-2">
             <button type="button" class="text-white bg-[#7286D3] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg font-medium text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Get started</button>
