@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a.active{
+    border: 1px solid;
+    border-radius: 12px;
+    background: rgb(79 70 229);
+    color: white;
+}
+
+a.active:hover{
+    color: white;
+}
