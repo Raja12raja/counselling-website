@@ -1,5 +1,5 @@
 import React from "react";
-import Content from "./Content";
+import Content from "../Forms/Content.js";
 
 export default function Testimonial(){
     return(
