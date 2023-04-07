@@ -1,9 +1,9 @@
 import React from 'react';
-import Carousel from './Home Components/Carousel';
+import Carousel from './Home Components/Carousel.js';
 import Counsellors from './Home Components/Counsellors/counsellors.js';
 import Testimonial from './Home Components/testimonials/testimonial.js';
-import Forms from './Home Components/Forms/Forms';
-import WhoAreWe from './Home Components/About';
+import Forms from './Home Components/Forms/Forms.js';
+import WhoAreWe from './Home Components/About.js';
 
 export default function Home() {
   return (

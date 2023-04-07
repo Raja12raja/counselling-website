@@ -1,9 +1,9 @@
-import Heading from './components/Heading'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import Heading from './components/Heading';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import ReactDOM from 'react-dom';
 import {Routes,Route, Link, BrowserRouter} from "react-router-dom";
 import Home from "./components/Home";
@@ -15,7 +15,7 @@ import Head from './components/About Us Components/Teams/Head';
 import UG from './components/About Us Components/Teams/UG';
 import PG from './components/About Us Components/Teams/PG';
 import Office from './components/About Us Components/Teams/Office';
-import Committee from './components/About Us Components/Teams/Committee'
+import Committee from './components/About Us Components/Teams/Committee';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
       <BrowserRouter>
       <Navbar></Navbar>
         <Routes>
-        <Route exact path = "/" element={<Home/>}></Route>
+        <Route exact path = "/" index element={<Home/>}></Route>
         <Route exact path = "/about" element={<About/>}>
           <Route exact path="Counsellors" element={<Counsellors/>}></Route>
           <Route exact path="" element={<Counsellors/>}></Route>
