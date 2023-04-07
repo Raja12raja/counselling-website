@@ -1,5 +1,5 @@
 import React from "react";
-import Content from "../Forms/Content.js";
+import Content from "./content.js";
 
 export default function Testimonial(){
     return(
@@ -7,8 +7,8 @@ export default function Testimonial(){
         {/* <div className="flex flex-col justify-center w-full px-4 py-8 md:mx-24">
             <h2 className="max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto text-center">
             Testimonial
-            </h2>
-            <div className="grid w-full grid-cols-1 gap-8 2xl:grid-cols-4 mt-8 md:grid-cols-2 lg:grid-cols-3">
+            </h2> */}
+            {/*<div className="grid w-full grid-cols-1 gap-8 2xl:grid-cols-4 mt-8 md:grid-cols-2 lg:grid-cols-3">
                 <Content name="Ishaan Mittal"></Content>
                 <Content name="Anonymous"></Content>
                 <Content name="Shagun Ghatak"></Content>
@@ -48,12 +48,12 @@ export default function Testimonial(){
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
-                </div> 
-        </div> */}
-        <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-              <p class="font-normal text-gray-700 dark:text-gray-400"><Content name="Ishaan Mittal"></Content></p>
-            </a>
+                </div> */}
+        {/* </div> */}
+        <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 flex flex-col justify-center">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
+            <p class="font-normal text-gray-700"><Content name="Ishaan Mittal"></Content></p>
+        </a>
         </section>
     )
 }
