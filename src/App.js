@@ -19,7 +19,7 @@ import Committee from './components/About Us Components/Teams/Committee';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App overflow-hidden">
       <Heading></Heading>
       <BrowserRouter>
       <Navbar></Navbar>
