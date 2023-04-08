@@ -5,15 +5,30 @@ import Coordinators from "./Coordinators";
 import Coa from "./Coa";
 import Mentors from "./Mentors";
 
-export default function UG(){
+export default function UG() {
   const [activeTab, setActiveTab] = useState("tab1");
- 
+
   return (
-    <div className="Tabs grid grid-cols-6 gap-5">
-      <div className="nav">
-        <TabNavItem title="GS COA" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab}/>
-        <TabNavItem title="Coordinators" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab}/>
-        <TabNavItem title="Student Mentors" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab}/>
+    <div className="Tabs sm:grid sm:grid-cols-6 sm:gap-5">
+      <div className="nav flex flex-col items-center sm:items-start">
+        <TabNavItem
+          title="GS COA"
+          id="tab1"
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+        <TabNavItem
+          title="Coordinators"
+          id="tab2"
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+        <TabNavItem
+          title="Student Mentors"
+          id="tab3"
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
       </div>
       <div className="outlet col-span-5 p-4">
         <TabContent id="tab2" activeTab={activeTab}>
@@ -28,4 +43,4 @@ export default function UG(){
       </div>
     </div>
   );
-};
+}
