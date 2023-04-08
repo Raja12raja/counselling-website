@@ -12,7 +12,7 @@ import Info from "./components/Info";
 import Events from "./components/Events";
 import Counsellors from './components/About Us Components/Teams/Counsellors';
 import Head from './components/About Us Components/Teams/Head';
-import UG from './components/About Us Components/Teams/UG';
+import UG from './components/About Us Components/Teams/UG/UG';
 import PG from './components/About Us Components/Teams/PG';
 import Office from './components/About Us Components/Teams/Office';
 import Committee from './components/About Us Components/Teams/Committee';

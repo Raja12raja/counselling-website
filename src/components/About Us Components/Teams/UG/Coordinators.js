@@ -1,10 +1,10 @@
 import React from 'react'
-import PhotoCard from "../../PhotoCard";
-import image1 from "../../../Images/Harshita_Murai_Counselor.jpg"; 
-import image2 from "../../../Images/monika_Counsellor.png";
-import image3 from "../../../Images/Subham_Mandsaurkar_Counsellor.jpg";
+import PhotoCard from "../../../PhotoCard";
+import image1 from "../../../../Images/Harshita_Murai_Counselor.jpg"; 
+import image2 from "../../../../Images/monika_Counsellor.png";
+import image3 from "../../../../Images/Subham_Mandsaurkar_Counsellor.jpg";
 
-export default function PG() {
+export default function Coordinators() {
   return (
     <div className='grid gap-10 mx-auto lg:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3'>
     <PhotoCard name="Aniket Tiwari" email="counselor_harshita@iiti.ac.in" phone="8830573076" image={image1}></PhotoCard>
