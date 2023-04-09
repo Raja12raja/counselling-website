@@ -1,15 +1,14 @@
 import React from "react";
 
-export default function TabNavItem({ id, title, activeTab, setActiveTab }) {
+export default function NavItems({ id, title, activeTab, setActiveTab }) {
   const handleClick = () => {
     setActiveTab(id);
   };
 
   return (
-    <div>
       <button
         onClick={handleClick}
-        className={ `rounded shadow-md text-center p-2 my-2 mx-auto
+        className={ `rounded shadow-md text-center sm:p-4 py-4
           ${activeTab === id
             ? "active text-white bg-indigo-600 "
             : "text-black bg-white hover:text-indigo-600"}`
@@ -17,6 +16,5 @@ export default function TabNavItem({ id, title, activeTab, setActiveTab }) {
       >
         {title}
       </button>
-    </div>
   );
 }
