@@ -54,7 +54,7 @@ const TestimonialCarousel = ({ testimonials }) => {
           Testimonial
         </h2>
       </div>
-      <div className="h-96 flex justify-center items-center">
+      <div className="h-96 justify-center items-center">
         { testimonialss.map((testimonial, index) => {
               return( 
                 <div key={index}>
