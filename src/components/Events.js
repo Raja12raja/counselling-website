@@ -3,6 +3,8 @@ import wmhd from '../Images/World_mental_health_day.png';
 import august_29 from '../Images/seminar_29_august.png';
 import august_7 from '../Images/Seminar_7_august.png';
 import august_6 from '../Images/Seminar_6_august.png';
+import feb_12 from '../Images/webinar_12_feb.png';
+import dec_6 from '../Images/meet_dec_6.png';
 
 export default function Events() {
   return (
@@ -73,6 +75,25 @@ export default function Events() {
           topic- "Managing Self, Stressors and Student Life- The Theory of Almost Everything."
         </p>
         <img src={august_6} alt='World Mental Health Day'/>
+      </div>
+      <div className='my-12 mx-16'>
+        <h3 className='text-bold text-lg underline decoration-double'>
+          A webinar on 12th February, 2022 
+        </h3>
+        <p>
+          The Seminar started by an expert talk by Professor Pradeep. R. Bijwe, Ex- IIT Delhi on the 
+          topic- “Be joyful to be successful.” 
+        </p>
+        <img src={feb_12} alt='World Mental Health Day'/>
+      </div>
+      <div className='my-12 mx-16'>
+        <h3 className='text-bold text-lg underline decoration-double'>
+          Online meeting with Student Mentors on 6th December, 2021 
+        </h3>
+        <p>
+          The meeting was facilitated by the Counselor, IITI and General secretary of Counseling, Outreach and Alumni. 
+        </p>
+        <img src={dec_6} alt='World Mental Health Day'/>
       </div>
     </div>
   );
