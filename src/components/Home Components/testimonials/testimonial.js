@@ -7,7 +7,7 @@ import Cards from "./cards";
 export default function Index() {
     return (
         <div className="container mx-auto">
-            <h2 className="max-w-lg text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto text-center">
+            <h2 className="max-w-lg text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto text-center pt-2">
             Testimonial
             </h2>
             <div className="flex items-center justify-center w-full h-full px-4 py-4">
