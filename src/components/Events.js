@@ -95,6 +95,15 @@ export default function Events() {
         </p>
         <img src={dec_6} alt='World Mental Health Day'/>
       </div>
+      <div className='my-12 mx-16'>
+        <h3 className='text-bold text-lg underline decoration-double'>
+          Webinar on 1st November 2020
+        </h3>
+        <p>
+          The meeting was facilitated by the Counselor, IITI and General secretary of Counseling, Outreach and Alumni. 
+        </p>
+        <img src={dec_6} alt='World Mental Health Day'/>
+      </div>
     </div>
   );
 }
