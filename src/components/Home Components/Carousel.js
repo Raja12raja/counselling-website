@@ -29,7 +29,7 @@ const Carousel = ({ images }) => {
     <div className="relative h-96">
       <img
         src={imagess[currentImageIndex]}
-        alt="Carousel Image"
+        alt="Carousel"
         className="object-fill h-full w-full rounded-md"
       />
       <button className="absolute top-1/2 left-0 ml-1.5 w-2.5" onClick={previousImage}>
