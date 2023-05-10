@@ -1,7 +1,10 @@
-import React from "react";
-import { EventsCard } from "../components/Events Components/EventsCard.js";
-import { data } from "../components/Events Components/data.js";
- import "../components/Events Components/events.css";
+import React from 'react';
+import wmhd from '../Images/World_mental_health_day.png';
+import august_29 from '../Images/seminar_29_august.png';
+import august_7 from '../Images/Seminar_7_august.png';
+import august_6 from '../Images/Seminar_6_august.png';
+import feb_12 from '../Images/webinar_12_feb.png';
+import dec_6 from '../Images/meet_dec_6.png';
 
 export default function Events() {
 	return (
