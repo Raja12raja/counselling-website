@@ -2,12 +2,9 @@ import carousel1 from '../../Images/young-family-teenage-boy-office-family-thera
 import carousel2 from '../../Images/online-psychotherapy-1585671734500 1.jpg';
 import carousel3 from '../../Images/istockphoto-1288914845-612x612.jpg';
 import carousel4 from '../../Images/clipart-doctor-counselling.png';
-import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
-import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import React from "react";
 
-import { Carousel, Typography, Button } from "@material-tailwind/react";
+import { Carousel, Typography} from "@material-tailwind/react";
  
 export default function carousel() {
   return (
@@ -15,7 +12,7 @@ export default function carousel() {
       <div className="relative height  w-full">
         <img
           src={carousel2}
-          alt="image 1"
+          alt="1"
           className="object-fill h-full w-full rounded-md"
         />
         <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
@@ -43,7 +40,7 @@ export default function carousel() {
       <div className="relative height w-full">
         <img
           src={carousel1}
-          alt="image 2"
+          alt="2"
           className="object-fill h-full w-full rounded-md"
         />
         <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
@@ -71,7 +68,7 @@ export default function carousel() {
       <div className="relative height w-full">
         <img
           src={carousel3}
-          alt="image 3"
+          alt="3"
           className="object-fill h-full w-full rounded-md"
         />
         <div className="absolute inset-0 grid h-full w-full items-end bg-black/75">
@@ -99,7 +96,7 @@ export default function carousel() {
       <div className="relative height w-full">
         <img
           src={carousel4}
-          alt="image 3"
+          alt="4"
           className="object-fill h-full w-full rounded-md"
         />
         <div className="absolute inset-0 grid h-full w-full items-end bg-black/75">
