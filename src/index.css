@@ -12,3 +12,12 @@ a.active{
 a.active:hover{
     color: white;
 }
+
+button.carousel{
+    display: flex;
+    align-items: center;
+}
+
+.carousel .height{
+    height: 28rem;
+}

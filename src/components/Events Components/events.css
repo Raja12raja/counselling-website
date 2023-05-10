@@ -1,0 +1,13 @@
+.eventsPage > div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.eventsPage img {
+	max-height: 300px;
+	width: auto;
+	object-fit: contain;
+}
