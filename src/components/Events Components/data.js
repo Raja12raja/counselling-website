@@ -6,7 +6,7 @@ import august_6 from '../../Images/Seminar_6_august.png';
 import feb_12 from '../../Images/webinar_12_feb.png';
 import dec_6 from '../../Images/meet_dec_6.png';
 
- export const data = [
+export const data = [
     {
       title:"World Mental Health Day programme on 13th and 14th October 2022",
       image: wmhd,
