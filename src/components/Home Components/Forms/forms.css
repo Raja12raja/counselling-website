@@ -1,11 +1,10 @@
-.forms{
+/* .forms{
     position: absolute;
     height: 70%;
     width: 100%;
     background-image: url("../../../Images/forms_bkgnd_image.jpg"); 
     background-size: cover;
     background-position: center;
-    /* filter: blur(5px); */
     z-index: -1;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -20,4 +19,4 @@
     padding: 20px;
     text-align: center;
     backdrop-filter: blur(5px);
-}
+} */
