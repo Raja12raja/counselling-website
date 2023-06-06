@@ -10,6 +10,7 @@ div{
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
+    opacity: 30%;
     z-index: -1;
 }
 .text {

@@ -9,15 +9,14 @@ import "../App.css"
 export default function Home() {
   return (
     <>
-      <div className="Home">
+      <div className="Home text">
         <Carousel></Carousel>
         <div className='background'></div>
-        <div className='text'>
         <WhoAreWe></WhoAreWe>
+        <div className='background'></div>
         <Forms></Forms>
         <TestimonialCarousel></TestimonialCarousel>
         <Counsellors></Counsellors>
-        </div>
       </div>
     </>
   );
