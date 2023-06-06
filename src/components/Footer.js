@@ -84,6 +84,7 @@ export default function Footer() {
               <p>
                 <a
                   href="https://www.linkedin.com/in/ishaan-mittal-/"
+                  target="_blank"
                   className="text-white hover:underline"
                 >
                   <FontAwesomeIcon icon={faCode} /> Ishaan Mittal
@@ -91,6 +92,7 @@ export default function Footer() {
                 <br></br>
                 <a
                   href="https://www.linkedin.com/in/shagun-ghatak-59a411230/"
+                  target="_blank"
                   className="text-white hover:underline"
                 >
                   <FontAwesomeIcon icon={faCode} /> Shagun Ghatak
