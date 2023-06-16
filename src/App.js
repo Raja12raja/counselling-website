@@ -11,7 +11,7 @@ import Head from "./components/About Us Components/Teams/Head";
 import Coordinators from "./components/About Us Components/Teams/coordinators/Coordinators";
 // import PG from "./components/About Us Components/Teams/PG";
 import Office from "./components/About Us Components/Teams/Office";
-import Committee from "./components/About Us Components/Teams/Committee";
+import Committee from "./components/About Us Components/Teams/committee/Committee";
 
 function App() {
   return (
