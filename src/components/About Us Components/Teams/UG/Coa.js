@@ -1,6 +1,6 @@
 import React from 'react'
 import PhotoCard from "../../../PhotoCard";
-import image1 from "../../../../Images/Harshita_Murai_Counselor.jpg"; 
+import image1 from "../../../../Images/aniket.webp"; 
 
 
 export default function Coa() {

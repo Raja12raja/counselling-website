@@ -10,8 +10,8 @@ export default function Counsellors(props){
         <h2 className="max-w-lg mb-10 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto text-center">
           Meet Our Counsellors
         </h2>
-        <div className="grid gap-10 mx-auto lg:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-3">
-            <PhotoCard name="Harshita Murai" email="counselor_harshita@iiti.ac.in" phone="8830573076" image={image1}></PhotoCard>
+        <div className="grid gap-10 mx-auto lg:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-2">
+            {/* <PhotoCard name="Harshita Murai" email="counselor_harshita@iiti.ac.in" phone="8830573076" image={image1}></PhotoCard> */}
             <PhotoCard name="Monika Gupta" email="counsellor@iiti.ac.in" phone="9009331946" image={image2}></PhotoCard>
             <PhotoCard name="Shubham Mandsaurkar" email="counselor@iiti.ac.in" phone="9174954908" image={image3}></PhotoCard>
         </div>

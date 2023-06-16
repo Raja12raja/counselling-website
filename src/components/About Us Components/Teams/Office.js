@@ -1,5 +1,5 @@
 import React from 'react'
-import image1 from "../../../Images/Head_Counselling_Aruna.jpg";
+import image1 from "../../../Images/Ms. Shilpa Chouhan.jpg";
 
 export default function Office() {
   return (
@@ -10,11 +10,11 @@ export default function Office() {
         alt="Person"
     />
     <div className="flex flex-col items-center">
-        <p className="text-lg font-bold">Prof. Aruna Tiwari</p>
-        <p className="text-base">(Head, Counselling Services)</p>
-        <p className="text-base">Associate Professor Discipline of Computer Science & Engineering</p>
-        <p className="text-base">Phone (Office): <span className='text-sm'>+91-731-6603568</span></p>
-        <p className="text-base">Email: <span className='text-sm'>head-cs@iiti.ac.in, artiwari@iiti.ac.in</span></p>
+        <p className="text-lg font-bold">Ms. Shilpa Chouhan</p>
+        <p className="text-base">(Office staff, Counselling Services)</p>
+        <p className="text-base">Junior Superintendent, MBA-HR</p>
+        <p className="text-base">Phone (Office): <span className='text-sm'>+91-731-660 (Ext. No. 5550)</span></p>
+        <p className="text-base">Email: <span className='text-sm'>counsellingcell@iiti.ac.in</span></p>
     </div>
     </div>
   )
