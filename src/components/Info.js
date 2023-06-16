@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import TabContent from './About Us Components/Teams/UG/NavContent';
+import TabContent from './About Us Components/Teams/coordinators/NavContent';
 import NavItem from '../components/Information Components/NavItems';
 import Parents from './Information Components/Parents';
 import Faculty from './Information Components/Faculty';

@@ -8,8 +8,8 @@ import Info from "./components/Info";
 import Events from "./components/Events";
 import Counsellors from "./components/About Us Components/Teams/Counsellors";
 import Head from "./components/About Us Components/Teams/Head";
-import UG from "./components/About Us Components/Teams/UG/UG";
-import PG from "./components/About Us Components/Teams/PG";
+import Coordinators from "./components/About Us Components/Teams/coordinators/Coordinators";
+// import PG from "./components/About Us Components/Teams/PG";
 import Office from "./components/About Us Components/Teams/Office";
 import Committee from "./components/About Us Components/Teams/Committee";
 
@@ -31,8 +31,8 @@ function App() {
             <Route exact path="Counsellors" element={<Counsellors />}></Route>
             <Route exact path="" element={<Counsellors />}></Route>
             <Route exact path="Head" element={<Head />}></Route>
-            <Route exact path="UG" element={<UG />}></Route>
-            <Route exact path="PG" element={<PG />}></Route>
+            <Route exact path="Coordinators" element={<Coordinators />}></Route>
+            {/* <Route exact path="PG" element={<PG />}></Route> */}
             <Route exact path="office" element={<Office />}></Route>
             <Route exact path="committee" element={<Committee />}></Route>
           </Route>
