@@ -4,7 +4,7 @@ import Image1 from "../../../Images/clipart-doctor-counselling.png";
 export default function Two() {
   return (
     <div className="lg:container mx-auto flex md:px-16 px-10 md:flex-row flex-col items-center">
-      <div className="lg:max-w-xs md:w-1/2 w-5/6 hidden sm:block">
+      <div className="lg:max-w-xs md:w-1/2 w-5/6 hidden md:block">
         <img className="object-center rounded" alt="hero" src={Image1} />
       </div>
       <div className="leading-relaxed lg:flex-grow md:w-1/2 lg:pl-12 md:pl-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">

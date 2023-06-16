@@ -32,7 +32,7 @@ export default function Teams(){
                     Committee
                 </NavLink>
             </div>
-            <div class="shadow-xl border border-gray-100 font-light p-8 rounded text-gray-500 bg-white mt-6">
+            <div class="shadow-xl border border-gray-100 font-light p-8 rounded text-gray-800 bg-white mt-6">
                 <Outlet></Outlet>
             </div>
         </div>
