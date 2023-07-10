@@ -10,6 +10,10 @@ import kedarmal from './Dr Kedarmal Verma SHSS.jpg';
 import mirza from './Dr Mirza S Baig.jpg';
 import naresh from './Dr Naresh Kumar Kumawat.png';
 import swadesh from  './Swadesh.png';
+import harshwardhan from './Harshwardhan Chaube.png';
+import purna from './SCC Purna Kukadiya PhD.jpg';
+import shubham from './Shubham Alte.jpg'; 
+
 export{
     feedbackImage,
     appina,
@@ -22,5 +26,8 @@ export{
     kedarmal,
     mirza,
     naresh,
-    swadesh
+    swadesh,
+    harshwardhan,
+    purna,
+    shubham,
 };
