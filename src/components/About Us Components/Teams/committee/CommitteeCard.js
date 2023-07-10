@@ -4,7 +4,7 @@ export default function CommitteeCard(props){
     return(
         <div className="flex flex-col items-center">
         <img
-            className="object-cover w-40 h-40 mb-2 rounded-full shadow hover:shadow-lg"
+            className="w-40 h-40 mb-2 rounded-full shadow hover:shadow-lg"
             src={props.image}
             alt="Person"
         />

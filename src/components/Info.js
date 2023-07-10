@@ -6,7 +6,7 @@ import Faculty from './Information Components/Faculty';
 import Activities from './Information Components/Activities';
 import Process from './Information Components/Process';
 import Faqs from './Information Components/Faqs';
-import Manodarpan from './Information Components/Manodarpan';
+import External from './Information Components/external';
 
 export default function Info() {
   const [activeTab,setActiveTab]=useState("1");
@@ -48,7 +48,7 @@ export default function Info() {
                 setActiveTab={setActiveTab}
               />
               <NavItem
-                title="MANODARPAN"
+                title="External Links"
                 id="6"
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
@@ -71,7 +71,7 @@ export default function Info() {
                 <Faqs></Faqs>
               </TabContent>
               <TabContent id="6" activeTab={activeTab}>
-                <Manodarpan></Manodarpan>
+                <External></External>
               </TabContent>
             </div>
     </div>
