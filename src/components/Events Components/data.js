@@ -1,4 +1,3 @@
-import  image  from "../../Images/Indian_Institute_of_Technology,_Indore_Logo.png";
 import wmhd from '../../Images/World_mental_health_day.png';
 import august_29 from '../../Images/seminar_29_august.png';
 import august_7 from '../../Images/Seminar_7_august.png';

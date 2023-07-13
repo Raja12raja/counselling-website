@@ -12,6 +12,7 @@ import Coordinators from "./components/About Us Components/Teams/coordinators/Co
 // import PG from "./components/About Us Components/Teams/PG";
 import Office from "./components/About Us Components/Teams/Office";
 import Committee from "./components/About Us Components/Teams/committee/Committee";
+import Eventk1718 from "./components/Events Components/17_18Events";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           </Route>
           <Route exact path="/information" element={<Info />}></Route>
           <Route exact path="/events" element={<Events />}></Route>
+          <Route exact path="Eventk1718" element={<Eventk1718 />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
