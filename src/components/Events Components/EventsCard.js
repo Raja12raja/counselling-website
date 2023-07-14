@@ -12,18 +12,18 @@ export const EventsCard = ({ title, text,talk,details,activities, date, img, lin
       }}
     >
       <div className="flex items-start flex-row">
-        <img
+        {/* <img
           alt="Activity"
           src={img}
           style={{ width: "min(90vw, 400px)", minWidth: "min(90vw, 400px)" }}
-        />
+        /> */}
         <div className="flex flex-col px-5">
           <h4 className="font-bold">{title}</h4>
           <br></br>
           <p className="font-extralight">{date}</p>
-          <p style={{ whiteSpace: "pre-wrap" }}>{typeof text === "function" ? text() : text}</p>
-          <p style={{ whiteSpace: "pre-wrap" }}>Talks: {typeof text === "function" ? text() : talk}</p>
-          <p style={{ whiteSpace: "pre-wrap" }}>Details: {typeof text === "function" ? text() : details}</p>
+          <p style={{ whiteSpace: "pre-wrap" }}>{typeof text === "function" ? text() : text}</p><br/>
+          {talk !=="" && talk !==undefined && (<p style={{ whiteSpace: "pre-wrap" }}>Talks: {typeof text === "function" ? text() : talk}</p>)}<br/>
+          {details !=="" && details !==undefined && (<p style={{ whiteSpace: "pre-wrap" }}>Details: {typeof text === "function" ? text() : details}</p>)}<br/>
           {activities !=="" && activities !==undefined && (
           <p>Activities: {activities}</p>)}
           {link !== "" && link !== undefined && (

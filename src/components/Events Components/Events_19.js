@@ -1,4 +1,4 @@
-import { EventsCard } from "../Events Components/EventsCard";
+import { EventsCard } from "./EventsCard";
 import '../Events Components/events.css';
 export const Event2k19 = [
     {
@@ -30,20 +30,25 @@ export const Event2k19 = [
         activities:"An interesting panel discussion between participants and experts. Street Play by ‘Aaina’ the dramatics club of IIT Indore. Screening of a short film over anxiety by the ‘Cinephiles’ movie-making club of IIT Indore. Followed by Prize Distribution for various competitions as part of the programme."
     },
 ]
-export default function Eventk19(){				
-  <div className="eventsPage">
-  {Event2k19.map((news, index) => {
-    return (
-      <EventsCard
-        className="text-justify"
-        title={news.title}
-        text={news.desc}
-        date={news.date}
-        key={index}
-        name={news.name}
-        link={news.link || ""}
-      />
-    );
-  })}
-  </div>
+export default function Eventk19(){	
+  return(			
+    <div className="eventsPage">
+      {Event2k19.map((news, index) => {
+        return (
+          <EventsCard
+            className="text-justify"
+            title={news.title}
+            text={news.desc}
+            talk = {news.talk}
+            details = {news.details}
+            activities = {news.activities}
+            date={news.date}
+            key={index}
+            name={news.name}
+            link={news.link || ""}
+          />
+        );
+      })}
+    </div>
+  )
 }

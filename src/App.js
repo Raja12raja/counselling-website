@@ -12,10 +12,10 @@ import Coordinators from "./components/About Us Components/Teams/coordinators/Co
 // import PG from "./components/About Us Components/Teams/PG";
 import Office from "./components/About Us Components/Teams/Office";
 import Committee from "./components/About Us Components/Teams/committee/Committee";
-import Eventk1718 from "./components/Events Components/17_18Events";
-import Eventk19 from "./components/Events Components/19_Events";
-import Eventk2021 from "./components/Events Components/20_21Events";
-import Eventk22 from "./components/Events Components/22_Events";
+import Eventk1718 from "./components/Events Components/Events17_18";
+import Eventk19 from "./components/Events Components/Events_19";
+import Eventk2021 from "./components/Events Components/Events20_21";
+import Eventk22 from "./components/Events Components/Events_22";
 
 function App() {
   return (
@@ -42,10 +42,6 @@ function App() {
           </Route>
           <Route exact path="/information" element={<Info />}></Route>
           <Route exact path="/events" element={<Events />}></Route>
-          <Route exact path="Eventk1718" element={<Eventk1718 />}></Route>
-          <Route exact path="Eventk19" element={<Eventk19 />}></Route>
-          <Route exact path="Eventk2021" element={<Eventk2021 />}></Route>
-          <Route exact path="Eventk22" element={<Eventk22 />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer></Footer>

@@ -17,22 +17,23 @@ export const Event2k1718 = [
 ]
 export default function Eventk1718(){			
   return(	
-  <div className="eventsPage">
-  {Event2k1718.map((news, index) => {
-    return (
-      <EventsCard
-        className="text-justify"
-        title={news.title}
-        text={news.desc}
-        talk = {news.talk}
-        details = {news.details}
-        activities = {news.activities}
-        date={news.date}
-        key={index}
-        name={news.name}
-        link={news.link || ""}
-      />
-    );
-  })}
-  </div>)
+    <div className="eventsPage">
+    {Event2k1718.map((news, index) => {
+      return (
+        <EventsCard
+          className="text-justify"
+          title={news.title}
+          text={news.desc}
+          talk = {news.talk}
+          details = {news.details}
+          activities = {news.activities}
+          date={news.date}
+          key={index}
+          name={news.name}
+          link={news.link || ""}
+        />
+      );
+    })}
+    </div>
+  )
 }

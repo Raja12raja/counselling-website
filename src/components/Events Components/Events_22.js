@@ -1,4 +1,4 @@
-import { EventsCard } from "../Events Components/EventsCard";
+import { EventsCard } from "./EventsCard";
 import '../Events Components/events.css';
 export const Event2k22= [
     {
@@ -72,20 +72,25 @@ export const Event2k22= [
         activities:"",
     },
 ]
-export default function Eventk22(){				
-  <div className="eventsPage">
-  {Event2k22.map((news, index) => {
-    return (
-      <EventsCard
-        className="text-justify"
-        title={news.title}
-        text={news.desc}
-        date={news.date}
-        key={index}
-        name={news.name}
-        link={news.link || ""}
-      />
-    );
-  })}
-  </div>
+export default function Eventk22(){
+    return(				
+        <div className="eventsPage">
+        {Event2k22.map((news, index) => {
+            return (
+            <EventsCard
+                className="text-justify"
+                title={news.title}
+                text={news.desc}
+                talk = {news.talk}
+                details = {news.details}
+                activities = {news.activities}
+                date={news.date}
+                key={index}
+                name={news.name}
+                link={news.link || ""}
+            />
+            );
+        })}
+        </div>
+    )
 }
