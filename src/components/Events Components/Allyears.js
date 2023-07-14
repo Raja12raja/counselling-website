@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link,Outlet } from "react-router-dom"; 
 // import Eventk1718 from "./Events17_18";
 // import Eventk19 from "./Events_19";
 // import Eventk2021 from "./Events20_21";
@@ -102,7 +102,7 @@ export default function AllYears(){
                     </Menu.Items>
                 </Transition>
             </Menu>
-            <Eventk22></Eventk22>
+            <Outlet></Outlet>
         </div>
     )
 }

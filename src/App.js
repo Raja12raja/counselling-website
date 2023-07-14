@@ -42,6 +42,7 @@ function App() {
           </Route>
           <Route exact path="/information" element={<Info />}></Route>
           <Route exact path="/events" element={<Events />}>
+            <Route exact path="" element={<Eventk22/>}></Route>
             <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>
             <Route exact path="Eventk19" element={<Eventk19/>}></Route>
             <Route exact path="Eventk2021" element={<Eventk2021/>}></Route>
