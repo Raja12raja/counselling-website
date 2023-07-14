@@ -1,4 +1,4 @@
-import { EventsCard } from "../Events Components/EventsCard";
+import { EventsCard } from "./EventsCard";
 import '../Events Components/events.css';
 export const Event2k1718 = [
     {
@@ -15,7 +15,8 @@ export const Event2k1718 = [
         details: "As many as 5 crore people in India suffer from depression, according to a report by the World Health Organisation. Suicide is 2nd leading cause of death in the 15-30 years age group, after road accidents. Increasing awareness about depression, early identification, and effective treatment can help reduce this silent epidemic in the young Indian population.",
       },
 ]
-export default function Eventk1718(){				
+export default function Eventk1718(){			
+  return(	
   <div className="eventsPage">
   {Event2k1718.map((news, index) => {
     return (
@@ -23,6 +24,9 @@ export default function Eventk1718(){
         className="text-justify"
         title={news.title}
         text={news.desc}
+        talk = {news.talk}
+        details = {news.details}
+        activities = {news.activities}
         date={news.date}
         key={index}
         name={news.name}
@@ -30,5 +34,5 @@ export default function Eventk1718(){
       />
     );
   })}
-  </div>
+  </div>)
 }

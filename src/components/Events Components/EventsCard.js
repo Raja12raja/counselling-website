@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const EventsCard = ({ title, text, date, img, link }) => {
+export const EventsCard = ({ title, text,talk,details,activities, date, img, link }) => {
   return (
     <div
       className="container-fluid"
@@ -22,6 +22,10 @@ export const EventsCard = ({ title, text, date, img, link }) => {
           <br></br>
           <p className="font-extralight">{date}</p>
           <p style={{ whiteSpace: "pre-wrap" }}>{typeof text === "function" ? text() : text}</p>
+          <p style={{ whiteSpace: "pre-wrap" }}>Talks: {typeof text === "function" ? text() : talk}</p>
+          <p style={{ whiteSpace: "pre-wrap" }}>Details: {typeof text === "function" ? text() : details}</p>
+          {activities !=="" && activities !==undefined && (
+          <p>Activities: {activities}</p>)}
           {link !== "" && link !== undefined && (
             <p style={{ whiteSpace: "pre-wrap" }}>
               To know more,{" "}
