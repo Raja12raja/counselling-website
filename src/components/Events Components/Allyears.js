@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
-import Eventk1718 from "./Events17_18";
-import Eventk19 from "./Events_19";
-import Eventk2021 from "./Events20_21";
+// import Eventk1718 from "./Events17_18";
+// import Eventk19 from "./Events_19";
+// import Eventk2021 from "./Events20_21";
 import Eventk22 from "./Events_22";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
@@ -43,7 +43,7 @@ export default function AllYears(){
                             <Menu.Item>
                                 {({ active }) => (
                                     <Link
-                                        href="src/components/Event Components/Events_22.js"
+                                        to='Eventk22'
                                         className={classNames(
                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                             'block px-4 py-2 text-sm'
@@ -57,45 +57,45 @@ export default function AllYears(){
                         <div className="py-1">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <a
-                                        href={Eventk2021}
+                                    <Link
+                                        to='Eventk2021'
                                         className={classNames(
                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                             'block px-4 py-2 text-sm'
                                         )}
                                     >
                                         2020-21
-                                    </a>
+                                    </Link>
                                 )}
                             </Menu.Item>
                         </div>
                         <div className="py-1">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <a
-                                        href={Eventk19}
+                                    <Link
+                                        to='Eventk19'
                                         className={classNames(
                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                             'block px-4 py-2 text-sm'
                                         )}
                                     >
                                         2019
-                                    </a>
+                                    </Link>
                                 )}
                             </Menu.Item>
                         </div>
                         <div className="py-1">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <a
-                                        href={Eventk1718}
+                                    <Link
+                                        to='Eventk1718'
                                         className={classNames(
                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                             'block px-4 py-2 text-sm'
                                         )}
                                     >
                                         2017-18
-                                    </a>
+                                    </Link>
                                 )}
                             </Menu.Item>
                         </div>

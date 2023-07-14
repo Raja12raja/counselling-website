@@ -41,7 +41,12 @@ function App() {
             <Route exact path="committee" element={<Committee />}></Route>
           </Route>
           <Route exact path="/information" element={<Info />}></Route>
-          <Route exact path="/events" element={<Events />}></Route>
+          <Route exact path="/events" element={<Events />}>
+            <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>
+            <Route exact path="Eventk19" element={<Eventk19/>}></Route>
+            <Route exact path="Eventk2021" element={<Eventk2021/>}></Route>
+            <Route exact path="Eventk22" element={<Eventk22/>}></Route>
+          </Route>
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
