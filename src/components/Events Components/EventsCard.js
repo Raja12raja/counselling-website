@@ -12,11 +12,11 @@ export const EventsCard = ({ title, text,talk,details,activities, date, img, lin
       }}
     >
       <div className="flex items-start flex-row">
-        {/* <img
+        <img
           alt="Activity"
           src={img}
           style={{ width: "min(90vw, 400px)", minWidth: "min(90vw, 400px)" }}
-        /> */}
+        />
         <div className="flex flex-col px-5">
           <h4 className="font-bold">{title}</h4>
           <br></br>

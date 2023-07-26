@@ -3,7 +3,7 @@ import { Link,Outlet } from "react-router-dom";
 // import Eventk1718 from "./Events17_18";
 // import Eventk19 from "./Events_19";
 // import Eventk2021 from "./Events20_21";
-import Eventk22 from "./Events_22";
+// import Eventk22 from "./Events_22";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
