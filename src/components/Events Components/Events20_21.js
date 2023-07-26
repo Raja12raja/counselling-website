@@ -1,12 +1,23 @@
 import { EventsCard } from "./EventsCard";
 import '../Events Components/events.css';
+import image1 from "../../Images/event2021/2021_event1.png"
+import image2 from "../../Images/event2020/event_20.png"
 export const Event2k2021= [
+    {
+      title:"An online meeting with student mentors on 6th December 2021. The facilitators of the meeting are the Counselor, IIT, Indore, and the General secretary of Counseling, Outreach, and Alumni.",
+      desc:"",
+      talk:"",
+      details:"",
+      activities:"",
+      img: image1,
+    },
     {
         title:"A webinar on enhancing concentration in online learning on 13th September 2020.",
         desc: "The Event consisted of: ",
         talk: "An Expert Talk on “Enhancing concentration and overcoming distractions during online learning” by Mr. Amal M. Das, Entrepreneur, Motivational Speaker, Author, Educationalist, Mentor, and alumnus of BTECH (Hons.), IIT Kharagpur.",
         details: "Covid Pandemic had brought up uncertainties in life. It requires a peaceful mind to be able to deal with situations. Through an intriguing and eye-opening story, Mr. Amal talked about ‘What is Real Peace’ and what you need to do to embrace peace amidst uncertainties. Distractions are commonplace but how exactly do we get distracted? Through the ‘Conscious choice mechanism’, It’s a must to know to come out of the distraction trap. In the session, participants learned about how to focus and where to focus with two relatable practical examples from the day-to-day life of the students.",
-        activities: ""
+        activities: "",
+        img: image2,
     },
     {
         title:"On the occasion of World Mental Health Day on 10th October, A webinar was organized with the motive of mental awareness during the Covid pandemic and afterward on 1st November 2020.",
@@ -22,13 +33,6 @@ export const Event2k2021= [
         details:"",
         activities:"",
     },
-    {
-        title:"An online meeting with student mentors on 6th December 2021. The facilitators of the meeting are the Counselor, IIT, Indore, and the General secretary of Counseling, Outreach, and Alumni.",
-        desc:"",
-        talk:"",
-        details:"",
-        activities:""
-    },
 ]
 export default function Eventk2021(){	
   return(			
@@ -37,6 +41,7 @@ export default function Eventk2021(){
         return (
           <EventsCard
             className="text-justify"
+            img = {news.img}
             title={news.title}
             text={news.desc}
             talk = {news.talk}
