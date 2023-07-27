@@ -1,7 +1,12 @@
 import { EventsCard } from "./EventsCard";
 import '../Events Components/events.css';
+import event01 from '../../Images/2019/Picture003.jpg'
+import event02 from '../../Images/2019/Picture2.jpg';
+import event03 from '../../Images/2019/Picture0012.jpg'
+import event04 from  '../../Images/2019/Picture02.jpg'
 export const Event2k19 = [
     {
+        img:event01,
         title:"An interactive meeting between first year students of B.Tech 2019 and their parents with a respective faculty advisor and student mentors on 24th July 2019 during the orientation programme.",
         desc: "Interaction of B. Tech. 2019 batch students and their parents with respective faculty advisors and student mentors were facilitated by counselling cell during the orientation program on 24th July 2019, to introduce IIT, Indore to the new students and their parents and to enable the students to get acquainted with the new environment at IIT, Indore.",
         talk: "",
@@ -9,6 +14,7 @@ export const Event2k19 = [
         activities: ""
     },
     {
+        img: event02,
         title:"Counselling cell, in association with the Office of the Dean of Student Affairs, organized a training session on mentorship for student mentors on 9th September 2019.",
         desc: "The Event consisted of: ",
         talk: "Training Session - “A perspective on the roles and the impact of mentors on the lives of students” by Dr. Satasuryaa.",
@@ -16,6 +22,7 @@ export const Event2k19 = [
         activities:"",
     },
     {
+        img:event03,
         title:"An interactive meeting between Dr Alok Bajpai and the Core group of student mentors on 18th October 2019.",
         desc:"A meeting was held for student mentors to understand their roles and responsibilities, during this meeting mentors discussed their concerns with Dr. Alok Bajpai, in turn, Dr. Bajpai introduced them to the methods which helps them during dealing with the issues faced by their mentees.",
         talk:"",
@@ -23,6 +30,7 @@ export const Event2k19 = [
         activities:"",
     },
     {
+        img: event04,
         title:"A mental health awareness programme on 19th October 2019.",
         desc:"The Event consisted of: ",
         talk:"An Expert Talk on “Is Mind Trainable?” by Dr. Alok Bajpai, Psychiatrist trained at NIMHANS, Bangalore, and part of Counselling Cell, IIT Kanpur and “Depression, why can’t we still identify it in time?” by Dr. Ashutosh Singh, Consultant Psychiatrist & De-Addiction Specialist at Apollo Hospitals, Indore.",
@@ -37,6 +45,7 @@ export default function Eventk19(){
         return (
           <EventsCard
             className="text-justify"
+            img={news.img}
             title={news.title}
             text={news.desc}
             talk = {news.talk}

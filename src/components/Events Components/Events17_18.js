@@ -1,7 +1,10 @@
 import { EventsCard } from "./EventsCard";
 import '../Events Components/events.css';
+import event1 from '../../Images/2017-18/event1.JPG';
+import event2 from '../../Images/2017-18/Picture1.jpg';
 export const Event2k1718 = [
     {
+        img:event1,
         title:"An event was organized to create awareness and sensitization for mental health issues and enhance positive well-being on 9th September 2017.",
         desc: "The Event consisited of: ",
         talk: "An Expert Talk on “The Individual and the institution - the nature and scope of student growth” by Dr. Shekher Seshadri, psychiatrist and Head of the Department of Child and Adolescent Psychiatry in NIMHANS, Bangalore, India.",
@@ -9,6 +12,7 @@ export const Event2k1718 = [
         activities: "Screening of a short film on suicide awareness “Suicide - It's not an option”- by ‘Cinephiles’ movie-making club of IIT Indore. Street Play - by ‘Aaina’ the dramatics club of IIT Indore. Prize Distribution - for poetry, story writing, and poster competitions organized by Literary Club and Kalakriti."
       },
       {
+        img:event2,
         title:"An event was organized to create awareness and sensitization of mental health issues for the IIT Indore community on 27th October 2018",
         desc: "The Event consisted of: ",
         talk: "An Expert Talk on “Building Resilience- encouraging positive mental health” by Dr. Ashutosh Singh, Consultant Psychiatrist & De-Addiction Specialist at Apollo Hospitals, Indore.",
@@ -22,6 +26,7 @@ export default function Eventk1718(){
       return (
         <EventsCard
           className="text-justify"
+          img={news.img}
           title={news.title}
           text={news.desc}
           talk = {news.talk}
