@@ -102,6 +102,7 @@ export default function AllYears(){
                     </Menu.Items>
                 </Transition>
             </Menu>
+            
             <Outlet></Outlet>
         </div>
     )
