@@ -6,9 +6,9 @@ export default function Heading() {
     return (
       <div>
         <nav className="bg-[#79DAE8] px-2 sm:px-4 py-2.5 w-full z-20 top-0 left-0 border-b border-gray-200">
-          <div className="container flex flex-wrap items-center justify-between mx-auto">
-          <a href="#" className="flex items-center">
-            <img src={picture} className="h-10 mr-3 sm:h-9" alt="IIT Indore Logo"/>
+          <div className="container flex flex-wrap items-center justify-between mx-5">
+          <a href="www.iiti.ac.in" className="flex items-center">
+            <img src={picture} className="h-14 mr-3 sm:h-14" alt="IIT Indore Logo"/>
             <span >
               <span className="self-center text-3xl font-semibold whitespace-nowrap">परामर्श सेवाएं | Counseling Services</span>
               <br></br>

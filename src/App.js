@@ -16,10 +16,22 @@ import Eventk1718 from "./components/Events Components/Events17_18";
 import Eventk19 from "./components/Events Components/Events_19";
 import Eventk2021 from "./components/Events Components/Events20_21";
 import Eventk22 from "./components/Events Components/Events_22";
+import Loader from "./components/BarLoader";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 5000)
+  }, [])
   return (
     <div className="App overflow-hidden">
+      {
+        loading ? <Loader /> :
+        <div>
       <Heading></Heading>
       <BrowserRouter>
         <Navbar></Navbar>
@@ -51,6 +63,8 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
+      </div>
+      }
     </div>
   );
 }
