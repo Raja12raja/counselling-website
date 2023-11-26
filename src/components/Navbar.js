@@ -2,14 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Modal from './Modal.js';
 import "../App.css";
-
+import Wrapper from "./NewModal.jsx";
 export default function Navbar() {
   return (
     <div>
       <div className="border-gray-200 px-2 sm:px-4 pt-2 bg-transparent">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <div className="flex md:order-2">
-          <Modal></Modal>
+          <Wrapper/>
           </div>
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
