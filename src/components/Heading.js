@@ -15,7 +15,7 @@ export default function Heading() {
               <span>भारतीय प्रौद्योगिकी संस्थान, इंदौर | Indian Institute of Technology, Indore</span>            
             </span>
           </a>
-          </div>
+          </div> 
         </nav>
       </div> 
     )

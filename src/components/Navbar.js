@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Modal from './Modal.js';
 import "../App.css";
 import Wrapper from "./NewModal.jsx";
+import axios from "axios"
+
 export default function Navbar() {
+  const [userdata, setUserdata] = useState({});
+    console.log("response", userdata)
+ 
+    const getUser = async () => {
+        try {
+            const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+
+            setUserdata(response.data.user)
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
+    // logoout
+    const logout = ()=>{
+        window.open("http://localhost:6005/logout","_self")
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
   return (
     <div>
       <div className="border-gray-200 px-2 sm:px-4 pt-2 bg-transparent">
@@ -27,8 +50,7 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/information"
+                <NavLink to="/information"
                   className="block hover:text-indigo-600"
                 >
                   <button class="py-1 px-3">Information</button>
@@ -39,6 +61,31 @@ export default function Navbar() {
                   <button class="py-1 px-3">Events</button>
                 </NavLink>
               </li>
+              {/*  */}
+              { Object?.keys(userdata)?.length > 0 ? (
+                  <>
+                  <li style={{color:"black",fontWeight:"bold"}}>{ "Hi, " + userdata?.displayName}</li>
+                    <li>
+                         
+                      </li>
+                      <li>
+                          <NavLink to="/home" className="block hover:text-indigo-600">
+                          <button class="py-1 px-3" onClick={logout}>Logout</button>
+                          </NavLink> 
+                         {/* onClick={logout}>Logout */}
+                      </li>
+                      <li>
+                          <img src={userdata?.image} style={{ width: "50px", borderRadius: "50%" }} alt="" />
+                    </li>
+                  </>
+              ) : <li>
+              <NavLink to="/login" className="block hover:text-indigo-600">
+                <button class="py-1 px-3">Login</button>
+              </NavLink>
+            </li>
+                  }
+           
+           
             </ul>
           </div>
         </div>
