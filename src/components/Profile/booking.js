@@ -3,7 +3,7 @@ import { Datepicker, Input, initTE, Timepicker } from "tw-elements";
 import Axios from "axios";
 import axios from 'axios';
 
-axios.defaults.baseURL="http://localhost:8080/"
+axios.defaults.baseURL="http://localhost:6005/" // changed the PORT to 6005 from 8080
 
 const Booking = () => {
   const [list,setList]=useState([])
@@ -85,7 +85,7 @@ const Booking = () => {
   console.log(list)
   return (
     <div>
-      {/* <div className="consellers">
+      <div className="consellers">
         <h2 className="h-mainheading">HISTORY</h2>
         <div className="c-querie">
 
@@ -116,7 +116,7 @@ const Booking = () => {
             </table>
           </div>
         </div>
-      </div> */}
+      </div>
   
 <div class='flex items-center justify-center min-h-screen from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br'>
 		<div class='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>

@@ -22,6 +22,8 @@ import Eventk19 from "./components/Events Components/Events_19";
 import Eventk2021 from "./components/Events Components/Events20_21";
 import Eventk22 from "./components/Events Components/Events_22";
 import Loader from "./components/BarLoader";
+import Error from "./components/LoginComponents/error";
+import Login from "./components/LoginComponents/login";
 import { useState, useEffect } from "react";
 function App() {
   const [loading, setLoading] = useState(false)
@@ -70,6 +72,8 @@ function App() {
             <Route exact path="Eventk2021" element={<Eventk2021/>}></Route>
             <Route exact path="Eventk22" element={<Eventk22/>}></Route>
           </Route>
+          <Route exact path="/login" element={<Login/>}></Route>
+          <Route exact path="/error" element={<Error/>}></Route>
         </Routes>
       </BrowserRouter>
       <Footer></Footer>
