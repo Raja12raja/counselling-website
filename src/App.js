@@ -3,6 +3,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
+import Profile from "./components/Profile/profilePage";
+import Test1 from "./components/Profile/test1";
+import Test2 from "./components/Profile/test2";
+import Test3 from "./components/Profile/test3";
+import Booking from "./components/Profile/booking";
 import About from "./components/AboutUs";
 import Info from "./components/Info";
 import Events from "./components/Events";
@@ -53,6 +58,12 @@ function App() {
             <Route exact path="committee" element={<Committee />}></Route>
           </Route>
           <Route exact path="/information" element={<Info />}></Route>
+          
+          <Route exact path="/profilePage" element={<Profile />}></Route>
+          <Route exact path="/booking" element={<Booking />}></Route>
+          <Route exact path="/test1" element={<Test1 />}></Route>
+          <Route exact path="/test2" element={<Test2 />}></Route>
+          <Route exact path="/test3" element={<Test3 />}></Route>
           <Route exact path="/events" element={<Events />}>
             <Route exact path="" element={<Eventk22/>}></Route>
             <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>

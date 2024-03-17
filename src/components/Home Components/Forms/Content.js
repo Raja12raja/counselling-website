@@ -10,6 +10,6 @@ export default function Content(props){
             <h2 className="title-font text-2xl font-medium mb-3">{props.title}</h2>
             <p className="leading-relaxed text-base">{props.desc}</p>
             <a className="mx-auto mt-3 text-white bg-indigo-600 py-2 px-5 focus:outline-none hover:bg-indigo-700 rounded-2xl" href={props.link}>{props.button}</a>
-      </div>
+        </div>
     )
 }

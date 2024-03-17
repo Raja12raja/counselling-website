@@ -2,7 +2,6 @@ import React from "react";
 import Content from "./Content";
 import FeedbackImage from "../../../Images/Feedback Form logo.png";
 import "./forms.css"
-
 export default function Forms(){
     return(
         <>
@@ -23,7 +22,7 @@ export default function Forms(){
                         title = "Book Appointment" 
                         desc="Book an appointment with the counselors" 
                         image={FeedbackImage}
-                        link="https://www.google.com/"
+                        link="/profilePage"
                         button="Book Now"/>
                 </div>
             </div>
