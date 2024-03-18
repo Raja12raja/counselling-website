@@ -4,7 +4,11 @@ const userSchema = new mongoose.Schema({
     googleId:String,
     displayName:String,
     email:String,
-    image:String
+    image:String,
+    role:{
+        type:String,
+        default:"Cilent"
+    }
 },{timestamps:true});
 
 

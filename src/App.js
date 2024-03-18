@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
-import Profile from "./components/Profile/profilePage";
+import Appoinment from "./components/Profile/appointment";
+import Profiles from "./components/Profiles";
 import Test1 from "./components/Profile/test1";
 import Test2 from "./components/Profile/test2";
 import Test3 from "./components/Profile/test3";
@@ -60,7 +61,8 @@ function App() {
           </Route>
           <Route exact path="/information" element={<Info />}></Route>
           
-          <Route exact path="/profilePage" element={<Profile />}></Route>
+          <Route exact path="/appointment" element={<Appoinment />}></Route>
+          <Route exact path="/profiles" element={<Profiles />}></Route>
           <Route exact path="/booking" element={<Booking />}></Route>
           <Route exact path="/test1" element={<Test1 />}></Route>
           <Route exact path="/test2" element={<Test2 />}></Route>

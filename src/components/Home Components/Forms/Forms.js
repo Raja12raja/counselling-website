@@ -22,7 +22,7 @@ export default function Forms(){
                         title = "Book Appointment" 
                         desc="Book an appointment with the counselors" 
                         image={FeedbackImage}
-                        link="/profilePage"
+                        link="/appointment"
                         button="Book Now"/>
                 </div>
             </div>

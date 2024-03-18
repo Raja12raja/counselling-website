@@ -1,6 +1,6 @@
 import React from 'react'
 
-const profileContent = (props) => {
+const ProfileContent = (props) => {
   return (
     <div>
     <div class="flex items-center h-max my-10 w-full justify-center">
@@ -42,4 +42,4 @@ const profileContent = (props) => {
   )
 }
 
-export default profileContent
+export default ProfileContent
