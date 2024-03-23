@@ -109,10 +109,9 @@ app.post("/create",async(req,res)=>{
 })
 
 app.put("/update",async(req,res)=>{
-  console.log(req.body);
-  const {id,...rest}=req.body
-  console.log(rest)
+  const {_id,...rest}=req.body
+  console.log(_id)
   
-  const data=await userModel.updateOne({_id:id},rest);
+  const data=await userModel.updateOne({_id:_id},rest);
   res.send({success:true,msg:"data updated", data:data})
 })

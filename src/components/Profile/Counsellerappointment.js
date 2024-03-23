@@ -32,6 +32,35 @@ const Userprofile = () => {
     getFetchData()
   },[])
 
+  const updateyes= async(e)=>{
+    console.log(e)
+    e.status="confirmed"
+     const data= await axios.put("/update",e);
+     if(data.data.success){
+       getFetchData()
+       alert("Appointment confimed")
+     }
+  }
+  const updateno= async(e)=>{
+    console.log(e)
+    e.status="cancelled"
+     const data= await axios.put("/update",e);
+     if(data.data.success){
+       getFetchData()
+       alert("Appointment Cancelled")
+     }
+  }
+  console.log(list)
+
+  const colour=(value)=>{
+    if(value=="cancelled"){
+      return <div class="text-red-500 text-lg">Cancelled</div>;
+    }
+    if(value=="confirmed"){
+      return <div class="text-green-500 text-lg">Confirmed</div>;
+    }
+    return <div class="text-black-500 text-lg">Pending</div>;
+  };
   return (
     <div>
     <p class="mb-12 pb-4 text-center text-3xl font-bold">Appointments</p>
@@ -56,12 +85,12 @@ const Userprofile = () => {
                   <h2 class="text-2xl font-bold text-zinc-700">{val.user}</h2>
                   <p class="mt-2 font-semibold text-zinc-700">{val.date}</p>
                   <p class="mt-4 text-zinc-500">{val.time}</p>
-                  <p class="mt-4 text-zinc-500">{val.status}</p>
+                  <p class="mt-4 text-zinc-500">{colour(val.status)}</p>
                 </div>
         
                 <div class="mt-6 grid grid-cols-2 gap-4">
-                  <button  class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-green-400 hover:text-white">YES</button>
-                  <button  class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-red-400 hover:text-white">NO</button>
+                  <button  onClick={()=> updateyes(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-green-400 hover:text-white">YES</button>
+                  <button  onClick={()=> updateno(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-red-400 hover:text-white">NO</button>
         
                 </div>
               </div>

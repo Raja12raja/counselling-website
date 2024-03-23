@@ -34,6 +34,15 @@ const Userprofile = () => {
     getFetchData()
   },[])
 
+  const colour=(value)=>{
+    if(value=="cancelled"){
+      return <div class="text-red-500 text-lg">Cancelled</div>;
+    }
+    if(value=="confirmed"){
+      return <div class="text-green-500 text-lg">Confirmed</div>;
+    }
+    return <div class="text-black-500 text-lg">Pending</div>;
+  };
   return (
     <div>
       <div>{userdata.displayName}</div>
@@ -63,7 +72,7 @@ const Userprofile = () => {
                         <td className="py-3 px-4 text-base text-gray-700 font-semibold">{val.name}</td>
                         <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.date}</td>
                         <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.time}</td>
-                        <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.status}</td>
+                        <td className="py-3 px-4 text-base text-gray-500 font-medium">{colour(val.status)}</td>
                       </tr>
                     );
                   }
