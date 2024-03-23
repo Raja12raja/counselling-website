@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const bodyParser = require('body-parser');
 require("./db/connection");
 const PORT = 6005;
 const session = require("express-session");
@@ -9,8 +10,10 @@ const passport = require("passport");
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 const userdb = require("./Model/userschema");
 const userModel = require("./Model/schemedata");
+const calendarData = require("./Model/availabilitySchema");
 const clientId = process.env.CLIENTID;
 const clientSecret = process.env.CLIENTSECRET;
+
 
 app.use(cors({
   origin: 'http://localhost:3000',
@@ -19,6 +22,7 @@ methods: 'GET, POST, PUT, DELETE',
 credentials:true
 }));
 app.use(express.json()); 
+app.use(bodyParser.json());
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -115,3 +119,77 @@ app.put("/update",async(req,res)=>{
   const data=await userModel.updateOne({_id:_id},rest);
   res.send({success:true,msg:"data updated", data:data})
 })
+
+// app.get('/availability/:date', async (req, res) => {
+//   try {
+//     const date = req.params.date;
+//     const availability = await calendarData.findOne({ date });
+//     if (!availability) {
+//       return res.status(404).json({ message: "Availability not found for the specified date" });
+//     }
+//     // Return availability status
+//     res.status(200).json({ [date]: availability.status });
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
+
+
+// app.post('/availability', async (req, res) => {
+//   try {
+//     const { date, status } = req.body;
+//     const availability = new calendarData({ date, status });
+//     await availability.save();
+//     res.status(201).json(availability);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
+
+// app.put('/availability/:date', async (req, res) => {
+//   try {
+//     const date = req.params.date;
+//     const { status } = req.body;
+//     await calendarData.findOneAndUpdate({ date }, { status });
+//     res.sendStatus(204);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
+
+// Get all availability
+app.get('/availability', async (req, res) => {
+  const calendardata = await calendarData.find({});
+  try {
+    res.status(200).json(calendardata);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Create or Update availability for a specific date
+app.post('/availability', async (req, res) => {
+  try {
+    const { date, status } = req.body;
+    const availability = new calendarData({ date, status });
+    await availability.save();
+    res.status(201).json({success: true, message: "Date saved", data: availability});
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.put('/availability', async (req, res) => {
+  try {
+    const { date, status } = req.body;
+    const existingAvailability = await calendarData.findOne({ date });
+    if (!existingAvailability) {
+      return res.status(404).json({ message: "Availability not found for the specified date" });
+    }
+    existingAvailability.status = status;
+    await existingAvailability.save();
+    res.status(200).json({ success: true, msg: "Data updated", data: existingAvailability });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});

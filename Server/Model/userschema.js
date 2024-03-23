@@ -12,6 +12,6 @@ const userSchema = new mongoose.Schema({
 },{timestamps:true});
 
 
-const userdb = new mongoose.model("CounsellingWebsite",userSchema);
+const userdb = new mongoose.model("UserCredentials",userSchema);
 
 module.exports = userdb; 

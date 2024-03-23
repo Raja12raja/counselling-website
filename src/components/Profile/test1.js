@@ -1,4 +1,5 @@
 import React from 'react'
+import Calendar from "./calendar"
 
 const test1 = () => {
   return (
@@ -44,6 +45,12 @@ const test1 = () => {
           </div>
         </div>
       
+        <div class="flex justify-center">
+          <div class="w-1/2 pl-4">
+            <Calendar />
+          </div>
+        </div>
+
     </div>
   )
 }
