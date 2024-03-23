@@ -11,6 +11,7 @@ const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 const userdb = require("./Model/userschema");
 const userModel = require("./Model/schemedata");
 const calendarData = require("./Model/availabilitySchema");
+const Counselor = require("./Model/counselorSchema");
 const clientId = process.env.CLIENTID;
 const clientSecret = process.env.CLIENTSECRET;
 
@@ -113,12 +114,15 @@ app.post("/create",async(req,res)=>{
 })
 
 app.put("/update",async(req,res)=>{
-  const {_id,...rest}=req.body
-  console.log(_id)
+  console.log(req.body);
+  const {id,...rest}=req.body
+  console.log(rest)
   
-  const data=await userModel.updateOne({_id:_id},rest);
+  const data=await userModel.updateOne({_id:id},rest);
   res.send({success:true,msg:"data updated", data:data})
 })
+
+
 
 // app.get('/availability/:date', async (req, res) => {
 //   try {
@@ -157,7 +161,6 @@ app.put("/update",async(req,res)=>{
 //   }
 // });
 
-// Get all availability
 app.get('/availability', async (req, res) => {
   const calendardata = await calendarData.find({});
   try {
@@ -167,11 +170,20 @@ app.get('/availability', async (req, res) => {
   }
 });
 
-// Create or Update availability for a specific date
+app.get('/availability/:counselorName', async (req, res) => {
+  const { counselorName } = req.params;
+  const calendardata = await calendarData.find({ counselorName });
+  try {
+    res.status(200).json(calendardata);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.post('/availability', async (req, res) => {
   try {
-    const { date, status } = req.body;
-    const availability = new calendarData({ date, status });
+    const { counselorName, date, status } = req.body;
+    const availability = new calendarData({ counselorName, date, status });
     await availability.save();
     res.status(201).json({success: true, message: "Date saved", data: availability});
   } catch (error) {
@@ -181,8 +193,8 @@ app.post('/availability', async (req, res) => {
 
 app.put('/availability', async (req, res) => {
   try {
-    const { date, status } = req.body;
-    const existingAvailability = await calendarData.findOne({ date });
+    const { counselorName, date, status } = req.body;
+    const existingAvailability = await calendarData.findOne({ counselorName, date });
     if (!existingAvailability) {
       return res.status(404).json({ message: "Availability not found for the specified date" });
     }
@@ -193,3 +205,121 @@ app.put('/availability', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+app.get('/api/counselors', async (req, res) => {
+  try {
+    const counselors = await Counselor.find();
+    res.json(counselors);
+  } catch (err) {
+    console.error('Error fetching counselors:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/api/counselors/:id', async (req, res) => {
+  try {
+    const counselor = await Counselor.findById(req.params.id);
+    res.json(counselor);
+  } catch (err) {
+    console.error('Error fetching counselor details:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+// const marchDates = []; // Array to hold March dates
+
+// Loop through each day of March
+// async function processData() {
+//   for (let day = 1; day <= 31; day=day+2) {
+//     const date = `2024-03-${day < 10 ? '0' + day : day}`;
+//     const status = "available";
+
+//     try {
+//       // Check if the record exists
+//       const existingData = await calendarData.findOne({ date: date, counselorName: "Raja Thakur"});
+
+//       if (existingData) {
+//         // If the record exists, update its status
+//         existingData.status = status;
+//         await existingData.save();
+//       } else {
+//         // If the record doesn't exist, create a new one
+//         const newData = new calendarData({
+//             counselorName: "Raja Thakur",
+//           date: date,
+//           status: status,
+//         });
+//         await newData.save();
+//       }
+//     } catch (error) {
+//       console.error("Error processing data:", error);
+//     }
+//   }
+
+//   console.log("Data processed successfully!");
+// }
+
+// processData();
+
+// async function addCounselors() {
+//   try {
+//     // Check if counselors already exist in the database
+//     const existingCounselors = await Counselor.find();
+//     if (existingCounselors.length === 0) {
+//       // Insert counselor data into the database
+//       await Counselor.insertMany([
+//         {
+//           img: "https://images.pexels.com/photos/4101144/pexels-photo-4101144.jpeg?auto=compress&cs=tinysrgb&w=600",
+//           name: "Deepesh Bansal",
+//           education: "professor",
+//           address: "iit indore",
+//           email: "me220003023@iiti.ac.in",
+//           phone: "934244244",
+//           counsellingType : "Community Counseling",
+//           credentials : "Ph.D. in Community Counseling",
+//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+//         },
+//         {
+//           img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//           name: "Raja Thakur",
+//           education: "professor",
+//           address: "iit indore",
+//           email: "mems220005041@iiti.ac.in",
+//           phone: "934244244",
+//           counsellingType : "Community Counseling",
+//           credentials : "Ph.D. in Community Counseling",
+//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+//         },
+//         {
+//           img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//           name: "test3",
+//           education: "professor",
+//           address: "iit indore",
+//           email: "test3@gmail.com",
+//           phone: "934244244",
+//           counsellingType : "Community Counseling",
+//           credentials : "Ph.D. in Community Counseling",
+//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+//         },
+//         {
+//           img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//           name: "test4",
+//           education: "professor",
+//           address: "iit indore",
+//           email: "test4@gmail.com",
+//           phone: "934244244",
+//           counsellingType : "Community Counseling",
+//           credentials : "Ph.D. in Community Counseling",
+//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+
+//         }
+//       ]);
+//       console.log('Counselors seeded successfully');
+//     }
+//   } catch (err) {
+//     console.error('Error seeding counselors:', err);
+//   }
+// }
+
+// addCounselors();

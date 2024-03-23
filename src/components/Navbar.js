@@ -7,13 +7,10 @@ import axios from "axios"
 import Userprofile from "./Userprofile.js"
 
 export default function Navbar() {
-  const [userdata, setUserdata] = useState({});
-    console.log("response", userdata)
- 
+  const [userdata, setUserdata] = useState({}); 
     const getUser = async () => {
         try {
             const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
-
             setUserdata(response.data.user)
         } catch (error) {
             console.log("error", error)

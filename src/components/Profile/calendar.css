@@ -16,15 +16,15 @@
 }
 
 .day {
-  width: 35px; /* Adjust the width to make the square smaller */
-  height: 25px; /* Adjust the height to make the square smaller */
+  width: 35px; 
+  height: 25px;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
   cursor: pointer;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }
 
   
@@ -32,14 +32,19 @@
     visibility: hidden;
   }
   .unavailable {
-    background-color: #dc3545; /* Red */
+    background-color: #dc3545; 
     color: white;
     border-radius: 5px;
   }
   
   .available {
-    background-color: #28a745; /* Green */
+    background-color: #28a745; 
     color: white;
     border-radius: 5px;
   }
   
+  .disabled {
+    background-color: #f7f7f7; 
+    color: rgb(216, 216, 216); 
+    cursor: not-allowed;
+  }

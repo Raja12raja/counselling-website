@@ -2,31 +2,37 @@ import React, { useState, useEffect } from 'react';
 import './calendar.css';
 import axios from 'axios';
 
-const Calendar = () => {
+const Calendar = (counselorName) => {
   const [date, setDate] = useState(new Date());
-  let [availability, setAvailability] = useState({});
-  let newd ;
-
+  const [availability, setAvailability] = useState({});
+  const [userRole, setUserRole] = useState({});
 
   useEffect(() => {
     fetchAvailability(); 
+    getUser();
   }, []);
 
   const fetchAvailability = async () => {
     try {
-      const response = await axios.get(`http://localhost:6005/availability`);
+      const response = await axios.get(`http://localhost:6005/availability/${counselorName.counselorName}`);
       const availabilityData = response.data.reduce((acc, curr) => {
         acc[curr.date] = curr.status;
         return acc;
       }, {});
-      console.log('Availability Data:', availabilityData);
-      availability = availabilityData;
       setAvailability(availabilityData);
-      console.log(availability)
     } catch (error) {
       console.error('Error fetching availability:', error);
     }
   };
+
+  const getUser = async () => {
+    try {
+        const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+        setUserRole(response.data.user.role)
+    } catch (error) {
+        console.log("error", error)
+    }
+}
   
   const daysInMonth = (year, month) => {
     return new Date(year, month + 1, 0).getDate();
@@ -43,6 +49,7 @@ const Calendar = () => {
 
   const renderCalendar = () => {
     const days = [];
+    const currentDate = new Date();
     const numDays = daysInMonth(date.getFullYear(), date.getMonth());
     const firstDay = firstDayOfMonth(date.getFullYear(), date.getMonth());
 
@@ -51,12 +58,17 @@ const Calendar = () => {
     }
 
     for (let day = 1; day <= numDays; day++) {
+      const currentDateObj = new Date(date.getFullYear(), date.getMonth(), day);
       const dayStatus = availability[`${date.getFullYear()}-${(date.getMonth() + 1 < 10 ? '0' : '')}${date.getMonth() + 1}-${(day < 10 ? '0' : '')}${day}`] || '';
       days.push(
         <div
           key={day}
-          className={`day ${dayStatus === 'unavailable' ? 'unavailable' : 'available'}`}
-          onClick={() => handleDayClick(day)}
+          className={`day ${currentDateObj < currentDate ? 'disabled' : ''} ${dayStatus === 'unavailable' ? 'unavailable' : 'available'}`}
+          onClick={() => {
+            if (userRole === 'Admin' && currentDateObj >= currentDate) { // Check user role
+              handleDayClick(day);
+            }
+          }}
         >
           {day}
         </div>
@@ -68,16 +80,13 @@ const Calendar = () => {
 
   const handleDayClick = async (day) => {
     const currentStatus = availability[`${date.getFullYear()}-${(date.getMonth() + 1 < 10 ? '0' : '')}${date.getMonth() + 1}-${(day < 10 ? '0' : '')}${day}`] || '';
-    console.log(`${date.getFullYear()}-${(date.getMonth() + 1 < 10 ? '0' : '')}${date.getMonth() + 1}-${(day < 10 ? '0' : '')}${day}`)
-    console.log(currentStatus)
     const newStatus = currentStatus === 'unavailable' ? 'available' : 'unavailable';
-    console.log(newStatus)
     const selectedDate = `${date.getFullYear()}-${(date.getMonth() + 1 < 10 ? '0' : '')}${date.getMonth() + 1}-${(day < 10 ? '0' : '')}${day}`;
     try {
-      await axios.put(`http://localhost:6005/availability`, { date: selectedDate, status: newStatus });
+      await axios.put(`http://localhost:6005/availability`, { date: selectedDate, status: newStatus, counselorName: counselorName.counselorName});
       setAvailability(prevAvailability => ({
         ...prevAvailability,
-        [selectedDate]: newStatus // Update availability for clicked day
+        [selectedDate]: newStatus 
       }));
     } catch (error) {
       console.error('Error toggling availability:', error);
