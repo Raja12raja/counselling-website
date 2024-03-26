@@ -32,7 +32,14 @@ const Booking = () => {
   });
   
   const booked = async(e) => {
-
+    if(dt.name=="" || dt.date=="" || dt.time==""){
+       alert("please enter correct entries")
+       return
+    }
+      if(dt.user!=user1){
+         alert("please enter correct email")
+         return
+      }
       e.preventDefault()
       console.log(dt)
       const data= await axios.post("/create",dt)
@@ -113,44 +120,8 @@ const Booking = () => {
   }
   return (
     <div>
-
-      {/* <div className="consellers">
-        <h2 className="h-mainheading">HISTORY</h2>
-        <div className="c-querie">
-
-          <div className="mx-auto pb-8 w-full max-w-7xl overflow-x-auto">
-            <table className="px-4 min-w-full rounded-md border border-gray-200 overflow-hidden">
-
-              <thead className="min-w-full bg-gray-100 text-left text-gray-700">
-                <tr class="border-b border-info-200 bg-info-100 text-neutral-800 ">
-                  <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col"> Name</th>
-                  <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Date</th>
-                  <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Time</th>
-                  <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Status</th>
-                </tr>
-              </thead>
-
-              <tbody className="">
-                {list.map((val, key) => {
-                  if (val.user === user1) {
-                    return (
-                      <tr class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                        <td className="py-3 px-4 text-base text-gray-700 font-semibold">{val.name}</td>
-                        <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.date}</td>
-                        <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.time}</td>
-                        <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.status}</td>
-                        <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.user}</td>
-                      </tr>
-                    );
-                  }
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div> */}
   
-<div class='flex items-center justify-center min-h-screen from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br'>
+    <div class='flex items-center justify-center min-h-screen from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br'>
 		<div class='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
 			<div class='max-w-md mx-auto space-y-6'>
         
@@ -159,10 +130,9 @@ const Booking = () => {
 					<p class="my-4 opacity-70"></p>
 					<hr class="my-6"/>
           <label for="counseller-selecter" >
-          <select onInput={handleOnchange1} name="user" id="inputcons" className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
-            <option  value="">--Please choose an email--</option>
-            <option value={user1}>{user1}</option>
-          </select>
+          <input onInput={handleOnchange1} name="user" id="inputcons" className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
+           
+          </input>
           </label>
           <label for="counseller-selecter" >
           <select onChange={handleOnchange} name='name' id="inputcons"class="w-full p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"  className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
