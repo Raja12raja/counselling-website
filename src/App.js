@@ -5,9 +5,6 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Appoinment from "./components/Profile/appointment";
 import Profiles from "./components/Profiles";
-import Test1 from "./components/Profile/test1";
-import Test2 from "./components/Profile/test2";
-import Test3 from "./components/Profile/test3";
 import Booking from "./components/Profile/booking";
 import About from "./components/AboutUs";
 import Info from "./components/Info";
@@ -26,6 +23,9 @@ import Loader from "./components/BarLoader";
 import Error from "./components/LoginComponents/error";
 import Login from "./components/LoginComponents/login";
 import { useState, useEffect } from "react";
+import Counselor from "./components/Profile/counselor";
+
+
 function App() {
   const [loading, setLoading] = useState(false)
   useEffect(() => {
@@ -60,13 +60,10 @@ function App() {
             <Route exact path="committee" element={<Committee />}></Route>
           </Route>
           <Route exact path="/information" element={<Info />}></Route>
-          
           <Route exact path="/appointment" element={<Appoinment />}></Route>
           <Route exact path="/profiles" element={<Profiles />}></Route>
           <Route exact path="/booking" element={<Booking />}></Route>
-          <Route exact path="/test1" element={<Test1 />}></Route>
-          <Route exact path="/test2" element={<Test2 />}></Route>
-          <Route exact path="/test3" element={<Test3 />}></Route>
+          <Route exact path="//counselor/:counselorId" element={<Counselor />}></Route>
           <Route exact path="/events" element={<Events />}>
             <Route exact path="" element={<Eventk22/>}></Route>
             <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>

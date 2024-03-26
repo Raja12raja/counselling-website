@@ -21,7 +21,6 @@ export default function Navbar() {
     const getUser = async () => {
         try {
             const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
-
             setUserdata(response.data.user)
         } catch (error) {
             console.log("error", error)
