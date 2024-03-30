@@ -34,7 +34,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+            className="bg-gradient-to-br text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
           >
             <div className="relative z-10">
                 <h3 className="text-3xl font=semibold text-center">Events under the Counselling Cell</h3>
