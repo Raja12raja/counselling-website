@@ -9,7 +9,7 @@ const Userprofile = () => {
 
   const getUser = async () => {
       try {
-          const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+          const response = await axios.get("/login/sucess", { withCredentials: true });
           console.log(response)
           setUserdata(response.data.user)
       } catch (error) {
@@ -17,11 +17,9 @@ const Userprofile = () => {
       }
   }
   const getFetchData = async()=>{
-     const data= await axios.get("/")
+     const data= await axios.get("/counselor/appointments")
      console.log(data)
-     if(data.data.success){
-       setList(data.data.data)
-     }
+     setList(data.data)
   }
   
   useEffect(() => {
@@ -32,19 +30,19 @@ const Userprofile = () => {
     getFetchData()
   },[])
 
-  const updateyes= async(e)=>{
+  const updateYes= async(e)=>{
     console.log(e)
     e.status="confirmed"
-     const data= await axios.put("/update",e);
+     const data= await axios.put("/counselor/appointments",e);
      if(data.data.success){
        getFetchData()
        alert("Appointment confimed")
      }
   }
-  const updateno= async(e)=>{
+  const updateNo= async(e)=>{
     console.log(e)
     e.status="cancelled"
-     const data= await axios.put("/update",e);
+     const data= await axios.put("/counselor/appointments",e);
      if(data.data.success){
        getFetchData()
        alert("Appointment Cancelled")
@@ -65,7 +63,7 @@ const Userprofile = () => {
     <div>
     <p class="mb-12 pb-4 text-center text-3xl font-bold">Appointments</p>
     {list.map((val, key) => {
-      if(val.name===userdata.displayName){
+      if(val.counselor===userdata.displayName){
         return (
               <div class="flex  w-full items-center justify-center m-4 flex-wrap ">
           <div class="w-full rounded-xl p-12 shadow-2xl shadow-green-200 md:w-8/12 lg:w-6/12 bg-white">
@@ -89,8 +87,8 @@ const Userprofile = () => {
                 </div>
         
                 <div class="mt-6 grid grid-cols-2 gap-4">
-                  <button  onClick={()=> updateyes(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-green-400 hover:text-white">YES</button>
-                  <button  onClick={()=> updateno(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-red-400 hover:text-white">NO</button>
+                  <button  onClick={()=> updateYes(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-green-400 hover:text-white">YES</button>
+                  <button  onClick={()=> updateNo(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-red-400 hover:text-white">NO</button>
         
                 </div>
               </div>

@@ -20,11 +20,11 @@ const Userprofile = () => {
       }
   }
   const getFetchData = async()=>{
-     const data= await axios.get("/")
+     const data= await axios.get("/counselor/appointments")
      console.log(data)
-     if(data.data.success){
-       setList(data.data.data)
-     }
+     console.log(data.data)
+     setList(data.data)
+    
   }
   
   useEffect(() => {
@@ -85,7 +85,7 @@ const Userprofile = () => {
                           if (val.user === user) {
                             return (
                               <tr key={key} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                                <td className="py-3 px-4 text-base text-gray-700 font-semibold">{val.name}</td>
+                                <td className="py-3 px-4 text-base text-gray-700 font-semibold">{val.counselor}</td>
                                 <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.date}</td>
                                 <td className="py-3 px-4 text-base text-gray-500 font-medium">{val.time}</td>
                                 <td className="py-3 px-4 text-base text-gray-500 font-medium">{colour(val.status)}</td>

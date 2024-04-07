@@ -65,7 +65,7 @@ const Calendar = (counselorName) => {
           key={day}
           className={`day ${currentDateObj < currentDate ? 'disabled' : ''} ${dayStatus === 'unavailable' ? 'unavailable' : 'available'}`}
           onClick={() => {
-            if (userRole === 'Admin' && currentDateObj >= currentDate) { // Check user role
+            if (currentDateObj >= currentDate) { // Check user role
               handleDayClick(day);
             }
           }}
@@ -79,19 +79,32 @@ const Calendar = (counselorName) => {
   };
 
   const handleDayClick = async (day) => {
-    const currentStatus = availability[`${date.getFullYear()}-${(date.getMonth() + 1 < 10 ? '0' : '')}${date.getMonth() + 1}-${(day < 10 ? '0' : '')}${day}`] || '';
-    const newStatus = currentStatus === 'unavailable' ? 'available' : 'unavailable';
     const selectedDate = `${date.getFullYear()}-${(date.getMonth() + 1 < 10 ? '0' : '')}${date.getMonth() + 1}-${(day < 10 ? '0' : '')}${day}`;
+    
     try {
-      await axios.put(`http://localhost:6005/availability`, { date: selectedDate, status: newStatus, counselorName: counselorName.counselorName});
+      let currentStatus = availability[selectedDate]; // Check if availability exists
+      
+      // If availability doesn't exist, create a new object with status 'unavailable'
+      if (!currentStatus) {
+        currentStatus = 'unavailable';
+        await axios.post(`http://localhost:6005/availability`, { date: selectedDate, status: currentStatus, counselorName: counselorName.counselorName });
+      } else {
+        // If availability exists, toggle the status
+        currentStatus = currentStatus === 'unavailable' ? 'available' : 'unavailable';
+        await axios.put(`http://localhost:6005/availability`, { date: selectedDate, status: currentStatus, counselorName: counselorName.counselorName });
+      }
+      
+      // Update the availability state
       setAvailability(prevAvailability => ({
         ...prevAvailability,
-        [selectedDate]: newStatus 
+        [selectedDate]: currentStatus 
       }));
     } catch (error) {
       console.error('Error toggling availability:', error);
     }
   };
+  
+  
 
   return (
     <div className="calendar">

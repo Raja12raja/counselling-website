@@ -23,8 +23,8 @@ const Profiles = () => {
   console.log(role)
   return (
     <div>
-      {role === "Cilent" && <Userprofile/>}
-      {role === "admin" && <Counsellerprofile/>}
+      {role === "Client" && <Userprofile/>}
+      {role === "Admin" && <Counsellerprofile/>}
     </div>
   )
 }

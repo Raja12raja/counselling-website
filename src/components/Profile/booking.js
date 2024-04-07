@@ -25,24 +25,25 @@ const Booking = () => {
   const [list,setList]=useState([])
   const [dt, setdt] = useState({
       user: "",
-      name: "",
+      counselor: "",
       date: "",
       time: "",
       status:"pending"
   });
   
   const booked = async(e) => {
-    if(dt.name=="" || dt.date=="" || dt.time==""){
-       alert("please enter correct entries")
-       return
-    }
-      if(dt.user!=user1){
-         alert("please enter correct email")
-         return
-      }
-      e.preventDefault()
+    // if(dt.counselor=="" || dt.date=="" || dt.time==""){
+    //    alert("please enter correct entries")
+    //    return
+    // }
+    dt.counselor == "" ? alert("please select correct counselor") : dt.date == "" ? alert("please select correct date") : dt.time == "" ? alert("please select correct time") : dt.user!=user1 ? alert("please enter correct email") : e.preventDefault() 
+      // if(dt.user!=user1){
+      //    alert("please enter correct email")
+      //    return
+      // }
+      // e.preventDefault()
       console.log(dt)
-      const data= await axios.post("/create",dt)
+      const data= await axios.post("http://localhost:6005/counselor/appointments",dt)
       console.log(data)
       if(data.data.success){
         alert("Appoinment booked");
@@ -72,7 +73,7 @@ const Booking = () => {
   }
 
   const getFetchData = async()=>{
-     const data= await axios.get("/")
+     const data= await axios.get("http://localhost:6005/counselor/appointments")
      console.log(data)
      if(data.data.success){
        setList(data.data.data)
@@ -135,7 +136,7 @@ const Booking = () => {
           </input>
           </label>
           <label for="counseller-selecter" >
-          <select onChange={handleOnchange} name='name' id="inputcons"class="w-full p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"  className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
+          <select onChange={handleOnchange} name='counselor' id="inputcons"class="w-full p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"  className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
             <option  value="">--Please choose an Conseller--</option>
             <option value="Raja Thakur">Raja Thakur</option>
             <option value="liver">oliver</option>

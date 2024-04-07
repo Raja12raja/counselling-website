@@ -24,8 +24,8 @@ const Appoinment = () => {
   console.log(role)
   return (
     <div>
-      {role === "admin" && <Counsellerappointment/>}
-      {role === "Cilent" && <Profilepage/>}
+      {role === "Admin" && <Counsellerappointment/>}
+      {role === "Client" && <Profilepage/>}
     </div>
   )
 }

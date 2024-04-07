@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const cron = require('node-cron');
 const bodyParser = require('body-parser');
 require("./db/connection");
 const PORT = 6005;
@@ -77,8 +78,8 @@ passport.deserializeUser((user,done)=>{
 app.get("/auth/google",passport.authenticate("google",{scope:["profile","email"]}));
 
 app.get("/auth/google/callback",passport.authenticate("google",{
-  successRedirect:"http://localhost:3000/dashboard", //TO DO : change the redirect url
-  failureRedirect:"http://localhost:3000/login"
+  successRedirect:"http://localhost:3000/appointment", //TO DO : change the redirect url
+  failureRedirect:"http://localhost:3000/error"
 }))
 
 app.get("/login/sucess",async(req,res)=>{
@@ -101,26 +102,72 @@ app.listen(PORT,()=>{
   console.log(`server start at port no ${PORT}`)
 })
 
-app.get('/',async(req,res)=>{
-  const data= await userModel.find({});
-  res.json({success:true,msg: "server is running",data:data});
-})
+// app.get('/',async(req,res)=>{
+//   const data= await userModel.find({});
+//   res.json({success:true,msg: "server is running",data:data});
+// })
 
-app.post("/create",async(req,res)=>{
-  console.log(req.body);
-  const data=new userModel(req.body);
-  await data.save()
-  res.send({success:true,msg: "date saved"});
-})
+app.get('/counselor/appointments', async (req, res) => {
+  const appointmentData = await userModel.find({});
+  try {
+    res.status(200).json(appointmentData);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-app.put("/update",async(req,res)=>{
-  console.log(req.body);
-  const {id,...rest}=req.body
-  console.log(rest)
+app.get('/counselor/appointments/:counselorName', async (req, res) => {
+  const { counselorName } = req.params;
+  const appointmentData = await userModel.find({counselor: counselorName });
+  try {
+    res.status(200).json(appointmentData);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}); 
+
+// app.post("/create",async(req,res)=>{
+//   console.log(req.body);
+//   const data=new userModel(req.body);
+//   await data.save()
+//   res.send({success:true,msg: "date saved"});
+// })
+
+// app.put("/update",async(req,res)=>{
+//   console.log(req.body);
+//   const {id,...rest}=req.body
+//   console.log(rest)
   
-  const data=await userModel.updateOne({_id:id},rest);
-  res.send({success:true,msg:"data updated", data:data})
-})
+//   const data=await userModel.updateOne({_id:id},rest);
+//   res.send({success:true,msg:"data updated", data:data})
+// })
+
+app.post('/counselor/appointments', async (req, res) => {
+  try {
+    const { user, counselor, date, time, status } = req.body;
+    const AppointmentData = new userModel({ user, counselor, date, time, status });
+    await AppointmentData.save();
+    res.status(201).json({success: true, message: "Date saved", data: AppointmentData});
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.put('/counselor/appointments', async (req, res) => {
+  try {
+    const { user, counselor, date, time, status } = req.body;
+    const existingData = await userModel.findOne({ user, counselor, date, time });
+    if (!existingData) {
+      return res.status(404).json({ message: "Status not found for the specified user and counselor" });
+    }
+    existingData.status = status;
+    await existingData.save();
+    res.status(200).json({ success: true, msg: "Data updated", data: existingData });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 
 
@@ -204,6 +251,31 @@ app.put('/availability', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+});
+
+const removeOutdatedData = async () => {
+  try {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    const currentMinute = currentDate.getMinutes();
+    
+    // Check if the current time is after 12:10 AM
+    if (currentHour > 0 || (currentHour === 0 && currentMinute >= 10)) {
+      const currentDateStr = currentDate.toISOString().split('T')[0];
+      
+      await calendarData.deleteMany({ date: { $lt: currentDateStr } });
+      console.log('Outdated data removed successfully.');
+    } else {
+      console.log('Cleanup skipped because it\'s before 12:10 AM.');
+    }
+  } catch (error) {
+    console.error('Error removing outdated data:', error);
+  }
+};
+
+
+cron.schedule('10 0 * * *', async () => {
+  removeOutdatedData();
 });
 
 app.get('/api/counselors', async (req, res) => {

@@ -20,8 +20,7 @@ import Eventk19 from "./components/Events Components/Events_19";
 import Eventk2021 from "./components/Events Components/Events20_21";
 import Eventk22 from "./components/Events Components/Events_22";
 import Loader from "./components/BarLoader";
-import Error from "./components/LoginComponents/error";
-import Login from "./components/LoginComponents/login";
+import Error from "./components/ErrorComponents/error";
 import { useState, useEffect } from "react";
 import Counselor from "./components/Profile/counselor";
 
@@ -63,7 +62,7 @@ function App() {
           <Route exact path="/appointment" element={<Appoinment />}></Route>
           <Route exact path="/profiles" element={<Profiles />}></Route>
           <Route exact path="/booking" element={<Booking />}></Route>
-          <Route exact path="//counselor/:counselorId" element={<Counselor />}></Route>
+          <Route exact path="/counselor/:counselorId" element={<Counselor />}></Route>
           <Route exact path="/events" element={<Events />}>
             <Route exact path="" element={<Eventk22/>}></Route>
             <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>
@@ -71,7 +70,6 @@ function App() {
             <Route exact path="Eventk2021" element={<Eventk2021/>}></Route>
             <Route exact path="Eventk22" element={<Eventk22/>}></Route>
           </Route>
-          <Route exact path="/login" element={<Login/>}></Route>
           <Route exact path="/error" element={<Error/>}></Route>
         </Routes>
       </BrowserRouter>

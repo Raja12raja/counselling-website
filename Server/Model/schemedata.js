@@ -5,7 +5,7 @@ const schemadata=mongoose.Schema({
        type:String,
        required: true
     },
-    name:{
+    counselor:{
        type:String,
        required: true
     },
@@ -22,6 +22,6 @@ const schemadata=mongoose.Schema({
        required: true
     },
 },{ timestamps:true});
-const userModel=mongoose.model("users",schemadata);
+const userModel=mongoose.model("Appointment Data",schemadata);
 
 module.exports = userModel;
