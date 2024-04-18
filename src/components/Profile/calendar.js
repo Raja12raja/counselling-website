@@ -65,7 +65,7 @@ const Calendar = (counselorName) => {
           key={day}
           className={`day ${currentDateObj < currentDate ? 'disabled' : ''} ${dayStatus === 'unavailable' ? 'unavailable' : 'available'}`}
           onClick={() => {
-            if (currentDateObj >= currentDate) { // Check user role
+            if (currentDateObj >= currentDate && userRole == 'Admin')  { // Check user role
               handleDayClick(day);
             }
           }}
