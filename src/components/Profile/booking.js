@@ -12,7 +12,6 @@ const Booking = () => {
         const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
         console.log(response.data.user.email)
         setUser1(response.data.user.email)
-        console.log("raja")
     } catch (error) {
         console.log("error", error)
     }
@@ -28,7 +27,7 @@ const Booking = () => {
       counselor: "",
       date: "",
       time: "",
-      status:"pending"
+      status: "pending",
   });
   
   const booked = async(e) => {
@@ -41,13 +40,13 @@ const Booking = () => {
       //    alert("please enter correct email")
       //    return
       // }
-      // e.preventDefault()
+      e.preventDefault()
       console.log(dt)
       const data= await axios.post("http://localhost:6005/counselor/appointments",dt)
       console.log(data)
       if(data.data.success){
         alert("Appoinment booked");
-        window.location.href='http://localhost:3000/booking';
+        window.location.href='http://localhost:3000/profiles';
       }
   }; 
   
@@ -131,12 +130,12 @@ const Booking = () => {
 					<p class="my-4 opacity-70"></p>
 					<hr class="my-6"/>
           <label for="counseller-selecter" >
-          <input onInput={handleOnchange1} name="user" id="inputcons" className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
+          <input  placeholder="Select a date" onInput={handleOnchange1} name="user" id="inputcons" className="border-2 border-solid border-gray-900 my-34 b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
            
           </input>
           </label>
           <label for="counseller-selecter" >
-          <select onChange={handleOnchange} name='counselor' id="inputcons"class="w-full p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"  className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
+          <select onChange={handleOnchange} name='counselor' id="inputcons"class=" border-2 border-solid border-gray-400 h-39 p-5 w-full p-3 mt-2 mb-4 w-full bg-slate-200 rounded border-2 border-slate-200 focus:border-slate-600 focus:outline-none"  className="b-counseller-select peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0">
             <option  value="">--Please choose an Conseller--</option>
             <option value="Raja Thakur">Raja Thakur</option>
             <option value="liver">oliver</option>

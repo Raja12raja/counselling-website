@@ -13,7 +13,7 @@ export default function Counsellors(){
         <div className="grid gap-10 mx-auto lg:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-2">
             <PhotoCard name="Harshita Murai" email="counselor_harshita@iiti.ac.in" phone="8830573076" image={image1}></PhotoCard>
             <PhotoCard name="Monika Gupta" email="counsellor@iiti.ac.in" phone="9009331946" image={image2}></PhotoCard>
-            <PhotoCard name="Shubham Mandsaurkar" email="counselor@iiti.ac.in" phone="9174954908" image={image3}></PhotoCard>
+            {/* <PhotoCard name="Shubham Mandsaurkar" email="counselor@iiti.ac.in" phone="9174954908" image={image3}></PhotoCard> */}
         </div>
         </div>
     )

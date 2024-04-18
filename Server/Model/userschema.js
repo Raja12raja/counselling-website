@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     image:String,
     role:{
         type:String,
-        default:"Cilent"
+        default:"Client"
     }
 },{timestamps:true});
 

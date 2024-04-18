@@ -91,6 +91,22 @@ export default function Footer() {
                 </a>
                 <br></br>
                 <a
+                  href="https://www.linkedin.com/in/raja-thakur-13604324b/"
+                  target="_blank"
+                  className="text-white hover:underline"
+                >
+                  <FontAwesomeIcon icon={faCode} /> Raja
+                </a>
+                <br></br>
+                <a
+                  href=""
+                  target="_blank"
+                  className="text-white hover:underline"
+                >
+                  <FontAwesomeIcon icon={faCode} /> Deepesh Bansal
+                </a>
+                <br></br>
+                <a
                   href="https://www.linkedin.com/in/shagun-ghatak-59a411230/"
                   target="_blank"
                   className="text-white hover:underline"

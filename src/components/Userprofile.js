@@ -36,13 +36,13 @@ const Userprofile = () => {
   },[])
 
   const colour=(value)=>{
-    if(value=="cancelled"){
-      return <div class="text-red-500 text-lg">Cancelled</div>;
-    }
     if(value=="confirmed"){
       return <div class="text-green-500 text-lg">Confirmed</div>;
     }
-    return <div class="text-black-500 text-lg">Pending</div>;
+    if(value=="pending"){
+      return <div class="text-red-500 text-lg">Cancelled</div>;
+    }
+    return <div class="text-brown-500 text-lg">{value}</div>;
   };
 
 
