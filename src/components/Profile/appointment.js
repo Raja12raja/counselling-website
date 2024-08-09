@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Counsellerappointment from './Counsellerappointment';
-import { Profilepage } from './profilePage';
+import { Profilepage } from './profilePage.js';
 
 const Appoinment = () => {
   

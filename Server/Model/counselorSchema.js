@@ -7,6 +7,7 @@ const counselorSchema = new mongoose.Schema({
   address: String,
   email: String,
   phone: String,
+  link: String,
   credentials : String,
   counsellingType : String,
   Description : String,

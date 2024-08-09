@@ -20,10 +20,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-5 mb-8 row-gap-10 md:grid-cols-3">
           <div>
             <p className="font-semibold tracking-wide text-[#79DAE8]">
-              Postal Adress
+              Office Adress
             </p>
             <p className="mt-2 space-y-2 text-purple-100">
-              West wing, 2nd Floor, Abhinandan Bhawan, <br></br>
+              East wing, 2nd Floor, Abhinandan Bhawan, <br></br>
               Indian Institute of Technology Indore<br></br>
               Khandwa Road, Simrol,<br></br>
               Indore, Pin code 453 552, <br></br>
@@ -41,10 +41,8 @@ export default function Footer() {
                 href="mailto:counsellor@iiti.ac.in"
                 className="text-white hover:underline"
               >
-                counsellor@iiti.ac.in
+                
               </a>{" "}
-              (Counsellor)
-              <br></br>
               <a
                 href="mailto:head-cs@iiti.ac.in"
                 className="text-white hover:underline"
@@ -54,16 +52,32 @@ export default function Footer() {
               (Head, Counselling Services)
               <br></br>
               <a
+                href="mailto:head-cs@iiti.ac.in"
+                className="text-white hover:underline"
+              >
+                counselor_shubham@iiti.ac.in 
+              </a>{" "}
+              (Counselor)
+              <br></br>
+              <a
+                href="mailto:head-cs@iiti.ac.in"
+                className="text-white hover:underline"
+              >
+             shubhra@iiti.ac.in
+              </a>{" "}
+              (Counselor)
+              <br></br>
+              <a
                 href="mailto:counsellingcell@iiti.ac.in"
                 className="text-white hover:underline"
               >
                 counsellingcell@iiti.ac.in
               </a>{" "}
-              (Appointments)
+              (Counselling Cell office)
               <br></br>
               <FontAwesomeIcon icon={faPhone} />
               <span> Phone:</span>
-              +91 731- 660 (Ext. No. 3425)
+              +91 731- 660 (Ext. No. 5550)
             </p>
           </div>
           <div>

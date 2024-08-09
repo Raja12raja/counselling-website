@@ -6,6 +6,7 @@ const Calendar = (counselorName) => {
   const [date, setDate] = useState(new Date());
   const [availability, setAvailability] = useState({});
   const [userRole, setUserRole] = useState({});
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     fetchAvailability(); 
@@ -28,7 +29,8 @@ const Calendar = (counselorName) => {
   const getUser = async () => {
     try {
         const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
-        setUserRole(response.data.user.role)
+        setUserRole(response.data.user.role);
+        setUser(response.data.user.displayName);
     } catch (error) {
         console.log("error", error)
     }

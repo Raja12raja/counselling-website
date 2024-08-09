@@ -13,7 +13,6 @@ const CounsellorProfile = () => {
   const getUser = async () => {
       try {
           const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
-          console.log(response)
           setUser(response.data.user.email)
           setUserdata(response.data.user)
       } catch (error) {
@@ -22,8 +21,6 @@ const CounsellorProfile = () => {
   }
   const getFetchData = async()=>{
      const data= await axios.get("/counselor/appointments")
-     console.log(data)
-     console.log(data.data)
      setList(data.data)
     
   }
@@ -35,18 +32,8 @@ const CounsellorProfile = () => {
   useEffect(()=>{
     getFetchData()
   },[])
-
-  const colour=(value)=>{
-    if(value=="confirmed"){
-      return <div class="text-green-500 text-lg">Confirmed</div>;
-    }
-    if(value=="pending"){
-      return <div class="text-red-500 text-lg">Cancelled</div>;
-    }
-    return <div class="text-brown-500 text-lg">{value}</div>;
-  };
-
-
+  
+  console.log(userdata);
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center" style={{ padding: '5% 5%', margin: '3% 0', backgroundColor: 'rgb(244, 245, 247)' }}>
       <div className="row justify-content-center align-items-center" style={{ borderRadius: '10px', backgroundColor: 'white' }}>
@@ -72,7 +59,8 @@ const CounsellorProfile = () => {
                 <hr className="mt-0 mb-4"></hr>
                 <div className="flex justify-center"> 
                   <div style={{ width: '80%' }}> 
-                    <Calendar counselorName={userdata.displayName} />
+                  <Calendar 
+                     counselorName={userdata.displayName}/>
                   </div>
                 </div>
               </div>

@@ -8,17 +8,7 @@ export default function Two() {
         <img className="object-center rounded" alt="hero" src={Image1} />
       </div>
       <div className="leading-relaxed lg:flex-grow md:w-1/2 lg:pl-12 md:pl-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-        The counsellor Ms. Monika Gupta (M.Phil, Clinical Psychology, NIMHANS,
-        and Bangalore) is available to provide help and support for students
-        from diverse religious, cultural and ethnic backgrounds. The role of a
-        counsellor is to offer support to the students to deal with a wide range
-        of concerns -be it academic, personal, emotional, family or peer
-        related. Counsellor meets students and their parents as and when needed.
-        Parents and teachers can also approach counsellor over issues pertaining
-        to a young person in their care. With the support of the students,
-        parents, other departments and services at IIT Indore, counselling
-        center has been able to effectively meet the needs of students and
-        wishes to continue working for the same.
+      At IIT-Indore, the Student Counselling Cell provides a supportive and conducive environment for students to discuss personal issues or academic challenges with professional counselors. Counselors play a crucial role in helping students address various concerns, including academic, personal, emotional, family, or peer-related issues. Counseling helps alleviate distress and enhance well-being by building confidence and teaching effective coping strategies. This facilitates adjustment, personality development, and growth. Through the counseling process, counselors listen to students' concerns with empathy and respond in non-judgmental way.
       </div>
     </div>
   );

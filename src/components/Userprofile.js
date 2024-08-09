@@ -40,9 +40,9 @@ const Userprofile = () => {
       return <div class="text-green-500 text-lg">Confirmed</div>;
     }
     if(value=="pending"){
-      return <div class="text-red-500 text-lg">Cancelled</div>;
+      return <div class="text-brown-500 text-lg">pending</div>;
     }
-    return <div class="text-brown-500 text-lg">{value}</div>;
+    return <div class="text-red-500 text-lg">{value}</div>;
   };
 
 
@@ -77,7 +77,7 @@ const Userprofile = () => {
                           <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col"> Counsellors</th>
                           <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Date</th>
                           <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Time</th>
-                          <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Status</th>
+                          <th className="py-3 px-4 text-sm font-medium uppercase tracking-wide" scope="col">Status/Remark</th>
                         </tr>
                       </thead>
                       <tbody>

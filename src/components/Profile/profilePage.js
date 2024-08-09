@@ -29,6 +29,7 @@ export const Profilepage = () => {
               name={counselor.name}
               education={counselor.education}
               address={counselor.address}
+              link={counselor.link}
               email={counselor.email}
               phone={counselor.phone}
               id = {counselor._id}

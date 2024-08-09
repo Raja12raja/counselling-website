@@ -58,13 +58,26 @@ const Counselor = () => {
           />
         </div>
       </div>
-      <div className="flex justify-center">
-        <div className="w-1/2 pl-4">
-          <Calendar 
+      <div className="flex justify-center mb-20">
+        <div className="w-1/2 pl-4 ">
+          <Calendar
             counselorName={counselor.name}
           />
         </div>
       </div>
+
+      <div className="flex justify-center items-center min-h-screen flex-col">
+      <h1 className="text-2xl font-bold text-center">Scheduled events</h1>
+      <iframe
+    src={counselor.link}
+    width="847"
+    height="600"
+    frameBorder="0"
+    className="shadow-lg rounded-lg box-border cursor-vertical-text border-l-8 font-bold "
+  ></iframe>
+</div>
+
+
     </div>
   );
 };
