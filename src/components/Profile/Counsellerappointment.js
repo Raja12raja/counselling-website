@@ -6,6 +6,12 @@ axios.defaults.baseURL="http://localhost:6005/" // changed the PORT to 6005 from
 const Userprofile = () => {
   const [list,setList]=useState([])
   const [userdata, setUserdata] = useState({});
+  const [Timechange,setTimechange] = useState("");
+  const [isVisible, setIsVisible] = useState(true);
+
+  const hideComponent = () => {
+    setIsVisible(false);
+  };
 
   const getUser = async () => {
       try {
@@ -31,41 +37,54 @@ const Userprofile = () => {
   },[])
 
   const updateYes= async(e)=>{
-    console.log(e)
-    e.status="confirmed"
+     console.log(e)
+     e.status="confirmed"
      const data= await axios.put("/counselor/appointments",e);
      if(data.data.success){
        getFetchData()
        alert("Appointment confimed")
+       window.location.href='http://localhost:3000/appointment';
      }
+     setIsVisible(false);
+
   }
   const updateNo= async(e)=>{
-    console.log(e)
-    e.status="cancelled"
+     e.status=Timechange;
+     console.log(Timechange);
+     if(Timechange=="") return alert("please write reason for that")
+     
      const data= await axios.put("/counselor/appointments",e);
      if(data.data.success){
        getFetchData()
        alert("Appointment Cancelled")
+       window.location.href='http://localhost:3000/appointment';
      }
+     setIsVisible(false);
+
   }
   console.log(list)
 
+  const msg=(e)=>{
+    console.log(e.target.value);
+    setTimechange(e.target.value);
+  }
   const colour=(value)=>{
-    if(value=="cancelled"){
-      return <div class="text-red-500 text-lg">Cancelled</div>;
+    if(value=="pending"){
+      return <div class="text-red-500 text-lg">Pending</div>;
     }
     if(value=="confirmed"){
       return <div class="text-green-500 text-lg">Confirmed</div>;
     }
-    return <div class="text-black-500 text-lg">Pending</div>;
+    return <div class="text-blue-500 text-lg">Reschedulement</div>;
   };
+
   return (
     <div>
     <p class="mb-12 pb-4 text-center text-3xl font-bold">Appointments</p>
     {list.map((val, key) => {
       if(val.counselor===userdata.displayName){
         return (
-              <div class="flex  w-full items-center justify-center m-4 flex-wrap ">
+          <div class="flex  w-full items-center justify-center m-4 flex-wrap ">
           <div class="w-full rounded-xl p-12 shadow-2xl shadow-green-200 md:w-8/12 lg:w-6/12 bg-white">
             <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
               <div class="grid-cols-1 lg:col-span-3">
@@ -83,13 +102,29 @@ const Userprofile = () => {
                   <h2 class="text-2xl font-bold text-zinc-700">{val.user}</h2>
                   <p class="mt-2 font-semibold text-zinc-700">{val.date}</p>
                   <p class="mt-4 text-zinc-500">{val.time}</p>
-                  <p class="mt-4 text-zinc-500">{colour(val.status)}</p>
+                  <p class="mt-4 text-zinc-500">Statut/Remark : {colour(val.status)}</p>
                 </div>
-        
+   <div class="flex mx-auto items-center justify-center shadow-lg mt-3 mx-8 mb-1 max-w-lg">
+   <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+      <div class="flex flex-wrap -mx-3 mb-3">
+         <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">
+postponement of meeting</h2>
+         <div class="w-full md:w-full px-3 mb-2 mt-2">
+            <textarea  onInput={msg} class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type Your reason' required></textarea>
+         </div>
+         <div class="w-full md:w-full flex items-start md:w-full px-3">
+            <div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
+               
+            </div>
+            
+         </div>
+    </div>
+    </form>
+    </div>
+                {/* <input onInput={msg} ></input> */}
                 <div class="mt-6 grid grid-cols-2 gap-4">
-                  <button  onClick={()=> updateYes(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-green-400 hover:text-white">YES</button>
-                  <button  onClick={()=> updateNo(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-red-400 hover:text-white">NO</button>
-        
+                  <button  onClick={()=> updateYes(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-green-400 hover:text-white">For Approval</button>
+                  <button  onClick={()=> updateNo(val)} class="w-full rounded-xl border-2 border-black-500 bg-white px-3 py-2 font-semibold  hover:bg-red-400 hover:text-white">For Reschedulement</button>
                 </div>
               </div>
             </div>

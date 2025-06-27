@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
@@ -132,7 +131,7 @@ export default function Navbar() {
                 <Wrapper />
               </li>
             </ul>
-            <div class="lg:hidden">
+            <d class="lg:hidden">
               <button
                 aria-label="Open Menu"
                 title="Open Menu"
@@ -176,17 +175,89 @@ export default function Navbar() {
                     </div>
                     <nav>
                       <ul class="space-y4">
-                        <li>
-                          <Wrapper />
-                        </li>
+
+                         <li>
+                <NavLink to="/" className="block hover:text-indigo-600">
+                  <button class="py-1 px-3">Home</button>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/about"
+                  className="block hover:text-indigo-600"
+                >
+                  <button class="py-1 px-3">About Us</button>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/information"
+                  className="block hover:text-indigo-600"
+                >
+                  <button class="py-1 px-3">Information</button>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/events" className="block hover:text-indigo-600">
+                  <button class="py-1 px-3">Events</button>
+                </NavLink>
+              </li>
+              {Object?.keys(userdata)?.length > 0 ? (
+                <>
+                  <li>
+                    <div
+                      className="relative"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <img
+                        src={userdata.image}
+                        style={{
+                          height: "50px",
+                          width: "50px",
+                          borderRadius: "50%",
+                        }}
+                        alt=""
+                      />
+                        {dropdownOpen && (
+                          <div className="absolute top-10 left-0 z-10">
+                            <div className="bg-white border rounded shadow-sm p-2">
+                              <button
+                                className="block w-full py-2 px-4 text-left"
+                                onClick={navigateToProfiles}
+                              >
+                                Hi, {userdata?.displayName}
+                              </button>
+                              <button
+                                className="block w-full py-2 px-4 text-left mt-2"
+                                onClick={logout}
+                              >
+                                Logout
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                    </div>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <button className="block hover:text-indigo-600 py-1 px-3" 
+                  onClick={loginwithgoogle} > Appointment </button>
+                </li>
+              )}
+              <li>
+                <Wrapper />
+              </li>
                       </ul>
                     </nav>
                   </div>
                 </div>
               )}
-            </div>
+            </d>
           </div>
         </div>
+      <hr></hr>
       </div>
     </div>
   );

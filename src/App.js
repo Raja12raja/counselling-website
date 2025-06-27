@@ -62,7 +62,7 @@ function App() {
           <Route exact path="/appointment" element={<Appoinment />}></Route>
           <Route exact path="/profiles" element={<Profiles />}></Route>
           <Route exact path="/booking" element={<Booking />}></Route>
-          <Route exact path="/counselor/:counselorId" element={<Counselor />}></Route>
+          <Route exact path="/counselor/:cId" element={<Counselor />}></Route>
           <Route exact path="/events" element={<Events />}>
             <Route exact path="" element={<Eventk22/>}></Route>
             <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>

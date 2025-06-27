@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Content from "./Content";
+import  axios from "axios";
 import FeedbackImage from "../../../Images/Feedback Form logo.png";
 import "./forms.css"
 export default function Forms(){
+
+    const [role,setRole] = useState("");
+    const getUser = async () => {
+      try {
+          const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+          console.log(response.data.user.role)
+          setRole(response.data.user.role)
+      } catch (error) {
+          console.log("error", error)
+      }
+    }
+    
+    useEffect(()=>{
+      getUser()
+    },[])
+    console.log(role)
+
     return(
         <>
             <div className="forms"></div>
@@ -19,11 +37,12 @@ export default function Forms(){
                         link="https://www.google.com/"
                         button="Explore"/>
                     <Content 
-                        title = "Book Appointment" 
-                        desc="Book an appointment with the counselors" 
-                        image={FeedbackImage}
+                        title= {role === "Admin" ?  "Appointments" : "Book now"}
+                        desc=  {role === "Admin" ?  "appointments request from clients for approval"  : "BooK an Appointment with counsellor" } 
+                        image= {FeedbackImage}
                         link="/appointment"
-                        button="Book Now"/>
+                        link=   {role === "" ? "http://localhost:6005/auth/google/callback" : "/appointment" }
+                        button= {role === "Admin" ? "View Requests" : "Book now" }/>
                 </div>
             </div>
       </>
