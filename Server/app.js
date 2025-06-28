@@ -356,7 +356,7 @@ async function addCounselors() {
         },
         {
           img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          name: "Raja Thakur",
+          name: "Raja",
           education: "professor",
           address: "iit indore",
           email: "mems220005041@iiti.ac.in",

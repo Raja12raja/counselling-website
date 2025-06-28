@@ -6,17 +6,20 @@ import Calendar from './Profile/calendar';
 axios.defaults.baseURL="http://localhost:6005/" // changed the PORT to 6005 from 8080
 
 const CounsellorProfile = () => {
-  const [list,setList]=useState([])
+  const [list,setList]=useState([]);
   const [user,setUser] = useState("");
   const [userdata, setUserdata] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const getUser = async () => {
       try {
           const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
-          setUser(response.data.user.email)
-          setUserdata(response.data.user)
+          setUser(response.data.user.email);
+          setUserdata(response.data.user);
+          setIsLoading(false);
       } catch (error) {
           console.log("error", error)
+          setIsLoading(false);
       }
   }
   const getFetchData = async()=>{
@@ -33,7 +36,21 @@ const CounsellorProfile = () => {
     getFetchData()
   },[])
   
-  console.log(userdata);
+  console.log('userdata:', userdata);
+  
+  if (isLoading) {
+    return (
+      <div className="container-fluid d-flex justify-content-center align-items-center" style={{ padding: '5% 5%', margin: '3% 0', backgroundColor: 'rgb(244, 245, 247)' }}>
+        <div className="text-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <p className="mt-3">Loading profile...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center" style={{ padding: '5% 5%', margin: '3% 0', backgroundColor: 'rgb(244, 245, 247)' }}>
       <div className="row justify-content-center align-items-center" style={{ borderRadius: '10px', backgroundColor: 'white' }}>
@@ -59,8 +76,13 @@ const CounsellorProfile = () => {
                 <hr className="mt-0 mb-4"></hr>
                 <div className="flex justify-center"> 
                   <div style={{ width: '80%' }}> 
-                  <Calendar 
-                     counselorName={userdata.displayName}/>
+                  {userdata.displayName ? (
+                    <Calendar counselorName={userdata.displayName}/>
+                  ) : (
+                    <div className="text-center text-muted">
+                      <p>Loading calendar...</p>
+                    </div>
+                  )}
                   </div>
                 </div>
               </div>
