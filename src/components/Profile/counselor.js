@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Calendar from "./calendar";
 import axios from 'axios';
 
 const Counselor = () => {
@@ -32,7 +31,7 @@ const Counselor = () => {
         const response = await axios.get(`http://localhost:6005/api/counselors/${counselorId}`);
         setCounselor(response.data);
         setDt((prev) => ({ ...prev, counselorEmail: response.data.email }));
-        setDt((prev) => ({ ...prev, counselorName: response.data.name }));
+        setDt((prev) => ({ ...prev, counselor: response.data.name }));
       } catch (error) {
         console.error("Error fetching counselor details:", error);
       }
@@ -115,20 +114,16 @@ const Counselor = () => {
           />
         </div>
       </div>
-      <div className="flex justify-center mb-20">
-        <div className="w-1/2 pl-4 ">
-          <Calendar counselorName={counselor.name} />
-        </div>
-      </div>
 
-      <div className="flex justify-center items-center min-h-screen flex-col">
-        <h1 className="text-2xl font-bold text-center">Scheduled events</h1>
+      <div className="flex justify-center items-center min-h-screen flex-col my-20">
+        <h1 className="text-2xl font-bold text-center my-5">Scheduled events</h1>
         <iframe
-          src={counselor.link}
-          width="847"
+          src="https://calendar.google.com/calendar/embed?src=rt12122003%40gmail.com&ctz=Asia%2FKolkata"
+          style={{ border: "0" }}
+          width="800"
           height="600"
           frameBorder="0"
-          className="shadow-lg rounded-lg box-border cursor-vertical-text border-l-8 font-bold "
+          scrolling="no"
         ></iframe>
       </div>
     </div>

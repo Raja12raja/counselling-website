@@ -351,6 +351,7 @@ async function addCounselors() {
           phone: "934244244",
           counsellingType : "Community Counseling",
           credentials : "Ph.D. in Community Counseling",
+          link:"https://calendar.google.com/calendar/embed?src=rt12122003%40gmail.com&ctz=Asia%2FKolkata",
           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
         },
         {
@@ -362,6 +363,7 @@ async function addCounselors() {
           phone: "934244244",
           counsellingType : "Community Counseling",
           credentials : "Ph.D. in Community Counseling",
+          link:"https://calendar.google.com/calendar/embed?src=rt12122003%40gmail.com&ctz=Asia%2FKolkata",
           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
         },
         {
@@ -373,6 +375,7 @@ async function addCounselors() {
           phone: "934244244",
           counsellingType : "Community Counseling",
           credentials : "Ph.D. in Community Counseling",
+          link:"https://calendar.google.com/calendar/embed?src=rt12122003%40gmail.com&ctz=Asia%2FKolkata",
           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
         },
         {
@@ -384,6 +387,7 @@ async function addCounselors() {
           phone: "934244244",
           counsellingType : "Community Counseling",
           credentials : "Ph.D. in Community Counseling",
+          link:"https://calendar.google.com/calendar/embed?src=rt12122003%40gmail.com&ctz=Asia%2FKolkata",
           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
 
         }
