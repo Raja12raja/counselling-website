@@ -9,6 +9,10 @@ const schemadata=mongoose.Schema({
        type:String,
        required: true
     },
+    counselorEmail:{
+       type:String,
+       required: true
+    },
     date:{
        type:String,
        required: true

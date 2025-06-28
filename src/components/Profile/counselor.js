@@ -1,23 +1,69 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Calendar from "./calendar";
+import axios from 'axios';
 
 const Counselor = () => {
   const { counselorId } = useParams();
   const [counselor, setCounselor] = useState(null);
+  const [dt, setDt] = useState({
+    date: "",
+    time: "",
+    status: "pending",
+  });
 
   useEffect(() => {
-    fetch(`http://localhost:6005/api/counselors/${counselorId}`)
-      .then(response => response.json())
-      .then(data => {
-        setCounselor(data);
-        console.log(data);
-        console.log("hello");
-      })
-      .catch(error => {
-        console.error('Error fetching counselor details:', error);
-      });
+    // Fetch logged-in user and pre-fill the user field
+    const getUser = async () => {
+      try {
+        const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+        setDt((prev) => ({ ...prev, user: response.data.user.email }));
+      } catch (error) {
+        console.log("Error fetching user:", error);
+      }
+    };
+    getUser();
+  }, []);
+
+  useEffect(() => {
+    // Fetch counselor details and pre-fill the counselor field
+    const getCounselor = async () => {
+      try {
+        const response = await axios.get(`http://localhost:6005/api/counselors/${counselorId}`);
+        setCounselor(response.data);
+        setDt((prev) => ({ ...prev, counselorEmail: response.data.email }));
+        setDt((prev) => ({ ...prev, counselorName: response.data.name }));
+      } catch (error) {
+        console.error("Error fetching counselor details:", error);
+      }
+    };
+    getCounselor();
   }, [counselorId]);
+
+  const booked = async (e) => {
+    e.preventDefault();
+    if (!dt.date || !dt.time) {
+      alert("Please enter correct entries");
+      return;
+    }
+    try {
+      const response = await axios.post("http://localhost:6005/counselor/appointments", dt);
+      if (response.data.success) {
+        alert("Appointment booked");
+        window.location.href = 'http://localhost:3000/profiles';
+      }
+    } catch (error) {
+      console.log("Error booking appointment:", error);
+    }
+  };
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setDt((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   if (!counselor) {
     return <div>Loading...</div>;
@@ -31,23 +77,34 @@ const Counselor = () => {
           className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
         >
           <div className="p-4 md:p-12 text-center lg:text-left">
-            <div
-              className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
-            ></div>
-
             <h1 className="text-3xl font-bold pt-8 lg:pt-0">{counselor.name}</h1>
             <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-            <p className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              {counselor.counsellingType}
-            </p>
-            <p className="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              {counselor.credentials}
-            </p>
+            <p className="pt-4 text-base font-bold">{counselor.counsellingType}</p>
+            <p className="pt-4 text-base font-bold">{counselor.credentials}</p>
+            <p className="pt-8 pb-8 text-sm">{counselor.Description}</p>
 
-            <p className="pt-8 pb-8 text-sm">
-              {counselor.Description}
-            </p>
-            <a className=" text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10" href='/booking'>Book Now</a>
+            {/* Booking Form */}
+            <form onSubmit={booked}>
+              <h2 className="text-2xl font-bold">Book Appointment</h2>
+              <hr className="my-6" />
+              <label htmlFor="date">Date:</label>
+              <input
+                type="text"
+                name="date"
+                onChange={handleOnChange}
+                className="border-2 border-solid border-gray-900 mb-6 w-full rounded px-3 py-2"
+              />
+              <label htmlFor="time">Time:</label>
+              <input
+                type="text"
+                name="time"
+                onChange={handleOnChange}
+                className="border-2 border-solid border-gray-900 mb-6 w-full rounded px-3 py-2"
+              />
+              <button type="submit" className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
         <div className="w-full lg:w-2/5">
@@ -60,24 +117,20 @@ const Counselor = () => {
       </div>
       <div className="flex justify-center mb-20">
         <div className="w-1/2 pl-4 ">
-          <Calendar
-            counselorName={counselor.name}
-          />
+          <Calendar counselorName={counselor.name} />
         </div>
       </div>
 
       <div className="flex justify-center items-center min-h-screen flex-col">
-      <h1 className="text-2xl font-bold text-center">Scheduled events</h1>
-      <iframe
-    src={counselor.link}
-    width="847"
-    height="600"
-    frameBorder="0"
-    className="shadow-lg rounded-lg box-border cursor-vertical-text border-l-8 font-bold "
-  ></iframe>
-</div>
-
-
+        <h1 className="text-2xl font-bold text-center">Scheduled events</h1>
+        <iframe
+          src={counselor.link}
+          width="847"
+          height="600"
+          frameBorder="0"
+          className="shadow-lg rounded-lg box-border cursor-vertical-text border-l-8 font-bold "
+        ></iframe>
+      </div>
     </div>
   );
 };

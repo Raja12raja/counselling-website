@@ -144,8 +144,8 @@ app.get('/counselor/appointments/:counselorName', async (req, res) => {
 
 app.post('/counselor/appointments', async (req, res) => {
   try {
-    const { user, counselor, date, time, status } = req.body;
-    const AppointmentData = new userModel({ user, counselor, date, time, status });
+    const { user, counselor, date, time, status, counselorEmail } = req.body;
+    const AppointmentData = new userModel({ user, counselor, date, time, status , counselorEmail });
     await AppointmentData.save();
     res.status(201).json({success: true, message: "Date saved", data: AppointmentData});
   } catch (error) {
@@ -290,6 +290,7 @@ app.get('/api/counselors', async (req, res) => {
 
 app.get('/api/counselors/:id', async (req, res) => {
   try {
+
     const counselor = await Counselor.findById(req.params.id);
     res.json(counselor);
   } catch (err) {
@@ -334,64 +335,64 @@ app.get('/api/counselors/:id', async (req, res) => {
 
 // processData();
 
-// async function addCounselors() {
-//   try {
-//     // Check if counselors already exist in the database
-//     const existingCounselors = await Counselor.find();
-//     if (existingCounselors.length === 0) {
-//       // Insert counselor data into the database
-//       await Counselor.insertMany([
-//         {
-//           img: "https://images.pexels.com/photos/4101144/pexels-photo-4101144.jpeg?auto=compress&cs=tinysrgb&w=600",
-//           name: "Deepesh Bansal",
-//           education: "professor",
-//           address: "iit indore",
-//           email: "me220003023@iiti.ac.in",
-//           phone: "934244244",
-//           counsellingType : "Community Counseling",
-//           credentials : "Ph.D. in Community Counseling",
-//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
-//         },
-//         {
-//           img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-//           name: "Raja Thakur",
-//           education: "professor",
-//           address: "iit indore",
-//           email: "mems220005041@iiti.ac.in",
-//           phone: "934244244",
-//           counsellingType : "Community Counseling",
-//           credentials : "Ph.D. in Community Counseling",
-//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
-//         },
-//         {
-//           img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-//           name: "test3",
-//           education: "professor",
-//           address: "iit indore",
-//           email: "test3@gmail.com",
-//           phone: "934244244",
-//           counsellingType : "Community Counseling",
-//           credentials : "Ph.D. in Community Counseling",
-//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
-//         },
-//         {
-//           img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-//           name: "test4",
-//           education: "professor",
-//           address: "iit indore",
-//           email: "test4@gmail.com",
-//           phone: "934244244",
-//           counsellingType : "Community Counseling",
-//           credentials : "Ph.D. in Community Counseling",
-//           Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+async function addCounselors() {
+  try {
+    // Check if counselors already exist in the database
+    const existingCounselors = await Counselor.find();
+    if (existingCounselors.length === 0) {
+      // Insert counselor data into the database
+      await Counselor.insertMany([
+        {
+          img: "https://images.pexels.com/photos/4101144/pexels-photo-4101144.jpeg?auto=compress&cs=tinysrgb&w=600",
+          name: "Deepesh Bansal",
+          education: "professor",
+          address: "iit indore",
+          email: "me220003023@iiti.ac.in",
+          phone: "934244244",
+          counsellingType : "Community Counseling",
+          credentials : "Ph.D. in Community Counseling",
+          Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+        },
+        {
+          img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          name: "Raja Thakur",
+          education: "professor",
+          address: "iit indore",
+          email: "mems220005041@iiti.ac.in",
+          phone: "934244244",
+          counsellingType : "Community Counseling",
+          credentials : "Ph.D. in Community Counseling",
+          Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+        },
+        {
+          img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          name: "test3",
+          education: "professor",
+          address: "iit indore",
+          email: "test3@gmail.com",
+          phone: "934244244",
+          counsellingType : "Community Counseling",
+          credentials : "Ph.D. in Community Counseling",
+          Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
+        },
+        {
+          img: "https://images.pexels.com/photos/4098150/pexels-photo-4098150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          name: "test4",
+          education: "professor",
+          address: "iit indore",
+          email: "test4@gmail.com",
+          phone: "934244244",
+          counsellingType : "Community Counseling",
+          credentials : "Ph.D. in Community Counseling",
+          Description : "Dr. monika is a compassionate Community Counselor with extensive experience in supporting individuals and communities. They provide a safe and non-judgmental space for clients to address mental health concerns and work towards positive change. With expertise in various counseling approaches, Dr. monika empowers clients to gain insights, develop coping skills, and achieve emotional well-being."
 
-//         }
-//       ]);
-//       console.log('Counselors seeded successfully');
-//     }
-//   } catch (err) {
-//     console.error('Error seeding counselors:', err);
-//   }
-// }
+        }
+      ]);
+      console.log('Counselors seeded successfully');
+    }
+  } catch (err) {
+    console.error('Error seeding counselors:', err);
+  }
+}
 
-// addCounselors();
+addCounselors();

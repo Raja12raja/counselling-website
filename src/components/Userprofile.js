@@ -24,7 +24,6 @@ const Userprofile = () => {
      console.log(data)
      console.log(data.data)
      setList(data.data)
-    
   }
   
   useEffect(() => {

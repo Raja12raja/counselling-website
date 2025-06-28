@@ -82,7 +82,7 @@ const Userprofile = () => {
     <div>
     <p class="mb-12 pb-4 text-center text-3xl font-bold">Appointments</p>
     {list.map((val, key) => {
-      if(val.counselor===userdata.displayName){
+      if(val.counselorEmail===userdata.email){
         return (
           <div class="flex  w-full items-center justify-center m-4 flex-wrap ">
           <div class="w-full rounded-xl p-12 shadow-2xl shadow-green-200 md:w-8/12 lg:w-6/12 bg-white">

@@ -31,15 +31,15 @@ const Booking = () => {
   });
   
   const booked = async(e) => {
-    // if(dt.counselor=="" || dt.date=="" || dt.time==""){
-    //    alert("please enter correct entries")
-    //    return
-    // }
+    if(dt.counselor=="" || dt.date=="" || dt.time==""){
+       alert("please enter correct entries")
+       return
+    }
     dt.counselor == "" ? alert("please select correct counselor") : dt.date == "" ? alert("please select correct date") : dt.time == "" ? alert("please select correct time") : dt.user!=user1 ? alert("please enter correct email") : e.preventDefault() 
-      // if(dt.user!=user1){
-      //    alert("please enter correct email")
-      //    return
-      // }
+      if(dt.user!=user1){
+         alert("please enter correct email")
+         return
+      }
       e.preventDefault()
       console.log(dt)
       const data= await axios.post("http://localhost:6005/counselor/appointments",dt)
@@ -53,6 +53,8 @@ const Booking = () => {
   const handleOnchange=(e)=>{
       console.log(e.target.value)
       const {value,name}=e.target
+      console.log(value);
+      console.log(name);
       setdt((preve)=>{
          return{
            ...preve,
@@ -155,7 +157,7 @@ const Booking = () => {
             <option  value="">--Please choose an Conseller--</option>
             {list1.map((val, key) => {
                return (
-               <option  value={val.name}>{val.name}</option>    
+               <option  value={val.name}>{val.email}</option>    
                ) 
             })}
           </select>

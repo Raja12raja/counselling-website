@@ -2,7 +2,8 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Userprofile from './Userprofile';
-import CounsellerProfile from './CounsellerProfile';
+import CounsellorProfile from './Counsellerprofile';
+
 const Profiles = () => {
   
     const [role,setRole] = useState();
@@ -24,7 +25,7 @@ const Profiles = () => {
   return (
     <div>
       {role === "Client" && <Userprofile/>}
-      {role === "Admin" && <CounsellerProfile/>}
+      {role === "Admin" && <CounsellorProfile/>}
     </div>
   )
 }
