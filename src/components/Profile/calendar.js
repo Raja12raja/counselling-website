@@ -44,7 +44,7 @@ const Calendar = ({ counselorName }) => {
 
   const getUser = async () => {
     try {
-        const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+        const response = await axios.get("http://localhost:6005/auth/login/success", { withCredentials: true });
         setUserRole(response.data.user.role);
         setUser(response.data.user.displayName);
     } catch (error) {

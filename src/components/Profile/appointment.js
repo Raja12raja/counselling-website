@@ -9,7 +9,7 @@ const Appoinment = () => {
     const [role,setRole] = useState("");
     const getUser = async () => {
       try {
-          const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+          const response = await axios.get("http://localhost:6005/auth/login/success", { withCredentials: true });
           console.log(response.data.user.role)
           setRole(response.data.user.role)
       } catch (error) {

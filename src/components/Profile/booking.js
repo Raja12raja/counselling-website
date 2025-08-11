@@ -9,7 +9,7 @@ const Booking = () => {
 
   const getUser = async () => {
     try {
-        const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+        const response = await axios.get("http://localhost:6005/auth/login/success", { withCredentials: true });
         console.log(response.data.user.email)
         setUser1(response.data.user.email)
     } catch (error) {

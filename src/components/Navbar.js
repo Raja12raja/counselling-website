@@ -27,7 +27,7 @@ export default function Navbar() {
 
   const getUser = async () => {
     try {
-      const response = await axios.get("http://localhost:6005/login/sucess", {
+      const response = await axios.get("http://localhost:6005/auth/login/success", {
         withCredentials: true,
       });
       setUserdata(response.data.user);
@@ -40,7 +40,7 @@ export default function Navbar() {
 }
 
   const logout = () => {
-    window.open("http://localhost:6005/logout", "_self");
+    window.open("http://localhost:6005/auth/logout", "_self");
   };
 
   const navigateToProfiles = () => {
@@ -286,7 +286,7 @@ export default function Navbar() {
  
 //     const getUser = async () => {
 //         try {
-//             const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+//             const response = await axios.get("http://localhost:6005/auth/login/success", { withCredentials: true });
 //             setUserdata(response.data.user)
 //         } catch (error) {
 //             console.log("error", error)

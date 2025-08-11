@@ -20,7 +20,7 @@ const Counselor = () => {
     // Fetch logged-in user and pre-fill the user field
     const getUser = async () => {
       try {
-        const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+        const response = await axios.get("http://localhost:6005/auth/login/success", { withCredentials: true });
         setDt((prev) => ({ ...prev, user: response.data.user.email }));
       } catch (error) {
         console.log("Error fetching user:", error);

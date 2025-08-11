@@ -13,7 +13,7 @@ const CounsellorProfile = () => {
 
   const getUser = async () => {
       try {
-          const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+          const response = await axios.get("http://localhost:6005/auth/login/success", { withCredentials: true });
           setUser(response.data.user.email);
           setUserdata(response.data.user);
           setIsLoading(false);
