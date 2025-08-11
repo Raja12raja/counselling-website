@@ -3,17 +3,11 @@ import { NavLink } from "react-router-dom";
 import "../App.css";
 import Wrapper from "./NewModal.jsx";
 import axios from "axios";
-import Userprofile from "./Userprofile.js";
-import { display } from "@mui/system";
 
 export default function Navbar() {
   const [userdata, setUserdata] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
 
   const handleMouseEnter = () => {
     setDropdownOpen(true);

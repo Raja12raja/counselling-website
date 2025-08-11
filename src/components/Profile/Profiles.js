@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Userprofile from './Userprofile';
+import Userprofile from './Userprofile.js';
 import CounsellorProfile from './Counsellerprofile';
 
 const Profiles = () => {

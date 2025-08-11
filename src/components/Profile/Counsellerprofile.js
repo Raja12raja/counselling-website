@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Profile/CounsellorProfile.css';
-import Calendar from './Profile/calendar';
+import './CounsellorProfile.css';
+import Calendar from './calendar';
 
 axios.defaults.baseURL="http://localhost:6005/" // changed the PORT to 6005 from 8080
 
 const CounsellorProfile = () => {
-  const [list,setList]=useState([]);
-  const [user,setUser] = useState("");
   const [userdata, setUserdata] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   const getUser = async () => {
       try {
           const response = await axios.get("http://localhost:6005/auth/login/success", { withCredentials: true });
-          setUser(response.data.user.email);
           setUserdata(response.data.user);
           setIsLoading(false);
       } catch (error) {
@@ -22,22 +19,11 @@ const CounsellorProfile = () => {
           setIsLoading(false);
       }
   }
-  const getFetchData = async()=>{
-     const data= await axios.get("/counselor/appointments")
-     setList(data.data)
-    
-  }
   
   useEffect(() => {
     getUser()
-  }, [])
+  }, []);
 
-  useEffect(()=>{
-    getFetchData()
-  },[])
-  
-  console.log('userdata:', userdata);
-  
   if (isLoading) {
     return (
       <div className="container-fluid d-flex justify-content-center align-items-center" style={{ padding: '5% 5%', margin: '3% 0', backgroundColor: 'rgb(244, 245, 247)' }}>

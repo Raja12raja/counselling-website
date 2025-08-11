@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Appoinment from "./components/Profile/appointment";
-import Profiles from "./components/Profiles";
+import Profiles from "./components/Profile/Profiles";
 import Booking from "./components/Profile/booking";
 import About from "./components/AboutUs";
 import Info from "./components/Info";
