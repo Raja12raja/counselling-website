@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import { ThemeProvider } from "@material-tailwind/react";
 import Heading from "./components/Heading";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -21,7 +23,6 @@ import Eventk2021 from "./components/Events Components/Events20_21";
 import Eventk22 from "./components/Events Components/Events_22";
 import Loader from "./components/BarLoader";
 import Error from "./components/ErrorComponents/error";
-import { useState, useEffect } from "react";
 import Counselor from "./components/Profile/counselor";
 
 
@@ -34,49 +35,51 @@ function App() {
     }, 2000)
   }, [])
   return (
-    <div className="App overflow-hidden">
-      {
-        loading ? <Loader /> :
-        <div>
-      <Heading></Heading>
-      <BrowserRouter>
-        <Navbar></Navbar>
-        <Routes>
-          <Route exact path="/" index element={<Home />}></Route>
-          <Route
-            exact
-            path="/counseling-website-IIT-Indore"
-            index
-            element={<Home />}
-          ></Route>
-          <Route exact path="/about" element={<About />}>
-            <Route exact path="Counsellors" element={<Counsellors />}></Route>
-            <Route exact path="" element={<Counsellors />}></Route>
-            <Route exact path="Head" element={<Head />}></Route>
-            <Route exact path="Coordinators" element={<Coordinators />}></Route>
-            {/* <Route exact path="PG" element={<PG />}></Route> */}
-            <Route exact path="office" element={<Office />}></Route>
-            <Route exact path="committee" element={<Committee />}></Route>
-          </Route>
-          <Route exact path="/information" element={<Info />}></Route>
-          <Route exact path="/appointment" element={<Appoinment />}></Route>
-          <Route exact path="/profiles" element={<Profiles />}></Route>
-          <Route exact path="/booking" element={<Booking />}></Route>
-          <Route exact path="/counselor/:counselorId" element={<Counselor />}></Route>
-          <Route exact path="/events" element={<Events />}>
-            <Route exact path="" element={<Eventk22/>}></Route>
-            <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>
-            <Route exact path="Eventk19" element={<Eventk19/>}></Route>
-            <Route exact path="Eventk2021" element={<Eventk2021/>}></Route>
-            <Route exact path="Eventk22" element={<Eventk22/>}></Route>
-          </Route>
-          <Route exact path="/error" element={<Error/>}></Route>
-        </Routes>
-      </BrowserRouter>
-      <Footer></Footer>
+    <ThemeProvider>
+      <div className="App overflow-hidden">
+        {
+          loading ? <Loader /> :
+          <div>
+        <Heading></Heading>
+        <BrowserRouter>
+          <Navbar></Navbar>
+          <Routes>
+            <Route exact path="/" index element={<Home />}></Route>
+            <Route
+              exact
+              path="/counseling-website-IIT-Indore"
+              index
+              element={<Home />}
+            ></Route>
+            <Route exact path="/about" element={<About />}>
+              <Route exact path="Counsellors" element={<Counsellors />}></Route>
+              <Route exact path="" element={<Counsellors />}></Route>
+              <Route exact path="Head" element={<Head />}></Route>
+              <Route exact path="Coordinators" element={<Coordinators />}></Route>
+              {/* <Route exact path="PG" element={<PG />}></Route> */}
+              <Route exact path="office" element={<Office />}></Route>
+              <Route exact path="committee" element={<Committee />}></Route>
+            </Route>
+            <Route exact path="/information" element={<Info />}></Route>
+            <Route exact path="/appointment" element={<Appoinment />}></Route>
+            <Route exact path="/profiles" element={<Profiles />}></Route>
+            <Route exact path="/booking" element={<Booking />}></Route>
+            <Route exact path="/counselor/:counselorId" element={<Counselor />}></Route>
+            <Route exact path="/events" element={<Events />}>
+              <Route exact path="" element={<Eventk22/>}></Route>
+              <Route exact path="Eventk1718" element={<Eventk1718/>}></Route>
+              <Route exact path="Eventk19" element={<Eventk19/>}></Route>
+              <Route exact path="Eventk2021" element={<Eventk2021/>}></Route>
+              <Route exact path="Eventk22" element={<Eventk22/>}></Route>
+            </Route>
+            <Route exact path="/error" element={<Error/>}></Route>
+          </Routes>
+        </BrowserRouter>
+        <Footer></Footer>
+        </div>
+        }
       </div>
-      }
-    </div>
+    </ThemeProvider>
   );
 }
 
