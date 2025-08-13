@@ -45,12 +45,6 @@ function App() {
           <Navbar></Navbar>
           <Routes>
             <Route exact path="/" index element={<Home />}></Route>
-            <Route
-              exact
-              path="/counseling-website-IIT-Indore"
-              index
-              element={<Home />}
-            ></Route>
             <Route exact path="/about" element={<About />}>
               <Route exact path="Counsellors" element={<Counsellors />}></Route>
               <Route exact path="" element={<Counsellors />}></Route>

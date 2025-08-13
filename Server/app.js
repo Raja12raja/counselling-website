@@ -19,8 +19,9 @@ const PORT = process.env.PORT || 6005;
 // CORS configuration for production
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://your-frontend-domain.vercel.app', // Update this with your actual frontend URL
-  process.env.FRONTEND_URL
+  'https://localhost:3000',
+  process.env.FRONTEND_URL,
+  process.env.BACKEND_URL
 ].filter(Boolean);
 
 app.use(cors({
@@ -44,11 +45,6 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: {
-    secure: process.env.NODE_ENV === 'production', // Set to true in production with HTTPS
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
-  }
 }));
 
 const passport = require('passport');

@@ -10,8 +10,8 @@ router.get("/google", passport.authenticate("google", {
 
 // Google OAuth callback
 router.get("/google/callback", passport.authenticate("google", {
-  successRedirect: "http://localhost:3000/appointment",
-  failureRedirect: "http://localhost:3000/error"
+  successRedirect: process.env.FRONTEND_URL + "/appointment",
+  failureRedirect: process.env.FRONTEND_URL + "/error"
 }));
 
 
@@ -41,7 +41,7 @@ router.get("/logout", (req, res, next) => {
     if (err) { 
       return next(err); 
     }
-    res.redirect("http://localhost:3000");
+    res.redirect(process.env.FRONTEND_URL);
   });
 });
 
