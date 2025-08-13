@@ -6,7 +6,7 @@ passport.use(
   new OAuth2Strategy({
     clientID: process.env.CLIENTID,
     clientSecret: process.env.CLIENTSECRET,
-    callbackURL: "/auth/google/callback",
+    callbackURL: process.env.BACKEND_URL + "/auth/google/callback",
     scope: ["profile", "email"]
   },
   async (accessToken, refreshToken, profile, done) => {
